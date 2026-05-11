@@ -1,273 +1,1688 @@
 <!DOCTYPE html>
-<html lang="es" data-theme="dark">
+<html lang="es" data-theme="dark" data-lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ONIT Fighting Studio | Jiu Jitsu, MMA, Muay Thai y Kickboxing en Manizales</title>
-  <meta name="description" content="ONIT Fighting Studio en Manizales. Entrenamiento de Jiu Jitsu, MMA, Muay Thai, Kickboxing y clases para niños y adolescentes." />
-  <meta name="robots" content="index, follow" />
-  <meta name="theme-color" content="#070707" />
-  <meta property="og:title" content="ONIT Fighting Studio" />
-  <meta property="og:description" content="Jiu Jitsu, MMA, Muay Thai y Kickboxing en Manizales." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://onitgbs.com" />
-  <meta property="og:image" content="assets/IMG_24692.jpg" />
-  <link rel="icon" href="assets/favicon.ico" />
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>ONIT GBS | Fighting Studio y automatización para pequeños negocios</title>
+  <meta name="description" content="ONIT Fighting Studio en Manizales. Jiu Jitsu, MMA, Muay Thai, Kickboxing y soluciones de automatización para pequeñas empresas.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#070707">
+
+  <meta property="og:title" content="ONIT GBS">
+  <meta property="og:description" content="Fighting Studio en Manizales y soluciones de automatización para pequeños negocios.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://onitgbs.com">
+  <meta property="og:image" content="assets/IMG_24692.jpg">
+
+  <link rel="icon" href="assets/favicon.ico">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 
   <style>
     :root {
-      --bg: #070707;
-      --panel: rgba(255,255,255,.045);
-      --text: #ffffff;
-      --muted: rgba(255,255,255,.64);
-      --soft: rgba(255,255,255,.10);
+      --black: #070707;
+      --black-2: #0b0b0b;
       --olive: #536650;
       --olive-dark: #344236;
       --sage: #d9dcc5;
       --bone: #f2f2f0;
-      --black: #0b0b0b;
-      --max: 1240px;
+      --white: #ffffff;
+      --border: rgba(255,255,255,0.10);
+      --max-width: 1240px;
     }
 
     * { box-sizing: border-box; }
+
     html { scroll-behavior: smooth; }
-    body { margin: 0; background: var(--bg); color: var(--text); font-family: Arial, Helvetica, sans-serif; }
+
+    body {
+      margin: 0;
+      background: var(--black);
+      color: var(--white);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
     a { color: inherit; text-decoration: none; }
     button { font-family: inherit; }
-    .container { width: min(100% - 40px, var(--max)); margin: 0 auto; }
 
-    .logo-light { display: none; }
-    html[data-theme="light"] .logo-dark { display: none; }
-    html[data-theme="light"] .logo-light { display: block; }
+    .page { min-height: 100vh; overflow-x: hidden; background: var(--black); }
 
-    .brand-logo { display: block; width: auto; object-fit: contain; }
-    .logo-header { height: 54px; max-width: 220px; }
-    .logo-hero { height: 150px; max-width: 100%; }
-    .logo-card { height: 62px; max-width: 250px; }
-    .logo-footer { height: 58px; max-width: 250px; }
-    .brand-icon { width: 48px; height: 48px; object-fit: contain; }
-
-    header {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(7,7,7,.88); backdrop-filter: blur(18px);
-      border-bottom: 1px solid var(--soft);
+    .container {
+      width: min(100% - 40px, var(--max-width));
+      margin: 0 auto;
     }
-    .header-inner { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-    .logo-button { background: none; border: 0; padding: 0; cursor: pointer; }
-    nav { display: flex; gap: 28px; color: rgba(255,255,255,.70); font-size: 12px; font-weight: 900; letter-spacing: .22em; text-transform: uppercase; }
-    nav button, .footer-links button { background: none; border: 0; color: inherit; cursor: pointer; padding: 0; font: inherit; text-transform: inherit; letter-spacing: inherit; }
-    nav button:hover, .footer-links a:hover, .footer-links button:hover { color: #fff; }
-    .header-actions { display: flex; align-items: center; gap: 12px; }
+
+    .header {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 50;
+      background: rgba(7, 7, 7, 0.88);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .service-switcher {
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      background:
+        radial-gradient(circle at top left, rgba(83,102,80,0.26), transparent 34%),
+        rgba(0,0,0,0.54);
+    }
+
+    .service-switcher-inner {
+      width: min(100% - 40px, var(--max-width));
+      min-height: 72px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .module-tabs {
+      width: min(100%, 720px);
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      padding: 8px;
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+    }
+
+    .module-tab {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      min-height: 50px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      background: transparent;
+      color: rgba(255,255,255,0.58);
+      cursor: pointer;
+      transition: 0.2s ease;
+      text-transform: uppercase;
+    }
+
+    .module-tab strong,
+    .module-tab span:first-child {
+      font-size: 12px;
+      font-weight: 950;
+      letter-spacing: 0.18em;
+    }
+
+    .module-tab small,
+    .module-tab span:last-child {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      opacity: 0.66;
+    }
+
+    .module-tab.active {
+      background: white;
+      color: black;
+      box-shadow: 0 14px 40px rgba(0,0,0,0.28);
+    }
+
+    .module-tab:not(.active):hover {
+      border-color: rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.08);
+      color: white;
+    }
+
+    .desktop-systems-link {
+      border: 1px solid rgba(255,255,255,0.20);
+      background: rgba(255,255,255,0.06);
+      color: white;
+      border-radius: 999px;
+      padding: 13px 16px;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .desktop-systems-link:hover {
+      background: var(--olive);
+      border-color: var(--olive);
+      color: white;
+    }
+
+    .header-inner {
+      width: min(100% - 40px, var(--max-width));
+      min-height: 82px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .brand-logo {
+      display: block;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .brand-logo-header { height: 54px; max-width: 220px; }
+    .brand-logo-hero { height: 155px; max-width: 100%; }
+    .brand-logo-card { height: 62px; max-width: 250px; }
+    .brand-logo-footer { height: 58px; max-width: 250px; }
+
+    .brand-icon {
+      display: block;
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.70);
+    }
+
+    .nav button {
+      color: inherit;
+      background: none;
+      border: 0;
+      cursor: pointer;
+      padding: 0;
+      font-size: inherit;
+      font-weight: inherit;
+      letter-spacing: inherit;
+      text-transform: inherit;
+    }
+
+    .nav button:hover { color: white; }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
     .btn {
-      display: inline-flex; align-items: center; justify-content: center;
-      border-radius: 999px; border: 1px solid transparent;
-      padding: 14px 26px; cursor: pointer; white-space: nowrap;
-      font-size: 13px; font-weight: 950; letter-spacing: .12em; text-transform: uppercase;
-      transition: .2s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 14px 26px;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: 0.2s ease;
+      cursor: pointer;
+      border: 1px solid transparent;
+      white-space: nowrap;
     }
-    .btn-white { background: #fff; color: #000; }
-    .btn-white:hover { background: rgba(255,255,255,.85); }
-    .btn-olive { background: var(--olive); color: #fff; }
+
+    .btn-white { background: white; color: black; }
+    .btn-white:hover { background: rgba(255,255,255,0.85); }
+
+    .btn-olive { background: var(--olive); color: white; }
     .btn-olive:hover { background: #445444; }
-    .btn-outline { background: transparent; border-color: rgba(255,255,255,.25); color: #fff; }
-    .btn-outline:hover { background: #fff; color: #000; }
-    .btn-dark { background: #000; color: #fff; }
-    .btn-dark:hover { background: rgba(0,0,0,.82); }
-    .btn-dark-outline { background: transparent; border-color: rgba(0,0,0,.22); color: #000; }
-    .btn-dark-outline:hover { background: #000; color: #fff; }
 
-    .theme-toggle, .menu-btn {
-      border: 1px solid rgba(255,255,255,.18); background: rgba(255,255,255,.06); color: #fff;
-      border-radius: 999px; cursor: pointer; transition: .2s ease;
+    .btn-outline {
+      border-color: rgba(255,255,255,0.25);
+      color: white;
+      background: transparent;
     }
-    .theme-toggle { padding: 13px 16px; font-size: 12px; font-weight: 950; letter-spacing: .12em; text-transform: uppercase; }
-    .menu-btn { display: none; width: 44px; height: 44px; font-size: 22px; }
-    .theme-toggle:hover { background: #fff; color: #000; }
 
-    .mobile-nav { display: none; border-top: 1px solid var(--soft); padding: 16px 20px 24px; background: rgba(7,7,7,.98); }
+    .btn-outline:hover { background: white; color: black; }
+
+    .btn-dark { background: black; color: white; }
+    .btn-dark:hover { background: rgba(0,0,0,0.84); }
+
+    .btn-dark-outline {
+      border-color: rgba(0,0,0,0.2);
+      color: black;
+      background: transparent;
+    }
+
+    .btn-dark-outline:hover { background: black; color: white; }
+
+    .theme-toggle,
+    .language-toggle {
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.06);
+      color: white;
+      border-radius: 999px;
+      padding: 13px 16px;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .theme-toggle:hover,
+    .language-toggle:hover {
+      background: white;
+      color: black;
+    }
+
+    .mobile-menu-button {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.20);
+      background: transparent;
+      color: white;
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    .mobile-nav {
+      display: none;
+      border-top: 1px solid rgba(255,255,255,0.10);
+      padding: 16px 20px 24px;
+      background: rgba(7,7,7,0.98);
+    }
+
     .mobile-nav.open { display: block; }
-    .mobile-nav button, .mobile-nav a {
-      display: block; width: 100%; padding: 14px 0; background: none; border: 0; border-bottom: 1px solid rgba(255,255,255,.08);
-      color: rgba(255,255,255,.72); text-align: left; cursor: pointer;
-      font-size: 13px; font-weight: 950; letter-spacing: .22em; text-transform: uppercase;
+
+    .mobile-nav button,
+    .mobile-nav a {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: 0;
+      padding: 14px 0;
+      color: rgba(255,255,255,0.72);
+      font-size: 13px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-weight: 900;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      cursor: pointer;
     }
 
-    main { padding-top: 82px; }
-    .hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--soft); }
-    .hero::before { content: ""; position: absolute; width: 460px; height: 460px; left: -180px; top: 80px; border-radius: 999px; background: #fff; filter: blur(140px); opacity: .20; }
-    .hero::after { content: ""; position: absolute; width: 540px; height: 540px; right: -120px; bottom: -180px; border-radius: 999px; background: var(--olive); filter: blur(150px); opacity: .35; }
-    .hero-grid { position: relative; z-index: 2; min-height: calc(100vh - 82px); padding: 80px 0; display: grid; grid-template-columns: 1.1fr .9fr; gap: 56px; align-items: center; }
-    .pill { display: inline-flex; gap: 8px; padding: 10px 16px; border: 1px solid rgba(255,255,255,.15); border-radius: 999px; color: rgba(255,255,255,.72); font-size: 12px; letter-spacing: .25em; text-transform: uppercase; margin-bottom: 28px; }
-    h1 { margin: 0; max-width: 880px; font-size: clamp(56px,9vw,118px); line-height: .88; letter-spacing: -.08em; text-transform: uppercase; font-weight: 950; }
-    .hero p { max-width: 680px; margin: 28px 0 0; color: var(--muted); font-size: 20px; line-height: 1.65; }
-    .actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px; }
-    .hero-card { position: relative; overflow: hidden; min-height: 560px; border: 1px solid var(--soft); border-radius: 32px; background: radial-gradient(circle at top left,rgba(255,255,255,.35),transparent 30%), linear-gradient(135deg,rgba(255,255,255,.08),rgba(255,255,255,.01)); box-shadow: 0 30px 100px rgba(0,0,0,.55); padding: 32px; }
-    .hero-card-content { min-height: 500px; display: flex; flex-direction: column; justify-content: space-between; position: relative; z-index: 2; }
-    .hero-logo { display: flex; justify-content: center; padding-top: 28px; }
-    .discipline-grid { width: min(100%,380px); margin: 48px auto 28px; display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; text-align: center; }
-    .discipline-item { border: 1px solid rgba(255,255,255,.10); background: rgba(0,0,0,.35); border-radius: 18px; padding: 20px 14px; font-size: 12px; font-weight: 950; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.76); }
-    .trial-box { border: 1px solid rgba(255,255,255,.10); background: rgba(0,0,0,.55); backdrop-filter: blur(10px); border-radius: 24px; padding: 24px; }
-    .label, .section-label { margin: 0; color: rgba(255,255,255,.45); font-size: 12px; font-weight: 950; letter-spacing: .35em; text-transform: uppercase; }
-    .trial-box h3 { margin: 10px 0 0; font-size: 26px; text-transform: uppercase; }
-    .trial-box p { margin: 12px 0 0; font-size: 14px; line-height: 1.6; color: rgba(255,255,255,.60); }
-    .mini-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
-    .mini-btn { display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; padding: 11px 15px; font-size: 11px; font-weight: 950; letter-spacing: .14em; text-transform: uppercase; border: 1px solid rgba(255,255,255,.16); color: #fff; background: rgba(255,255,255,.06); transition: .2s ease; }
-    .mini-btn.primary { background: var(--olive); border-color: var(--olive); }
-    .mini-btn:hover { background: #fff; color: #000; }
+    main { padding-top: 154px; }
 
-    .stats { background: #fff; color: #000; }
-    .stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: rgba(0,0,0,.10); }
-    .stat { background: #fff; text-align: center; padding: 34px 18px; }
-    .stat strong { display: block; font-size: 42px; letter-spacing: -.08em; font-weight: 950; }
-    .stat span { display: block; margin-top: 8px; color: rgba(0,0,0,.56); font-size: 12px; letter-spacing: .22em; text-transform: uppercase; font-weight: 800; }
+    .hero {
+      position: relative;
+      min-height: calc(100vh - 154px);
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 460px;
+      height: 460px;
+      left: -180px;
+      top: 80px;
+      border-radius: 999px;
+      background: white;
+      filter: blur(140px);
+      opacity: 0.20;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 540px;
+      height: 540px;
+      right: -120px;
+      bottom: -180px;
+      border-radius: 999px;
+      background: var(--olive);
+      filter: blur(150px);
+      opacity: 0.35;
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 56px;
+      align-items: center;
+      min-height: calc(100vh - 154px);
+      padding: 80px 0;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 999px;
+      color: rgba(255,255,255,0.72);
+      font-size: 12px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+
+    .hero h1 {
+      margin: 0;
+      max-width: 880px;
+      font-size: clamp(56px, 9vw, 118px);
+      line-height: 0.88;
+      letter-spacing: -0.08em;
+      text-transform: uppercase;
+      font-weight: 950;
+    }
+
+    .hero p {
+      max-width: 680px;
+      margin: 28px 0 0;
+      color: rgba(255,255,255,0.68);
+      font-size: 20px;
+      line-height: 1.65;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 36px;
+    }
+
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 560px;
+      border: 1px solid var(--border);
+      border-radius: 32px;
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.35), transparent 30%),
+        linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.01));
+      box-shadow: 0 30px 100px rgba(0,0,0,0.55);
+      padding: 32px;
+    }
+
+    .hero-card-content {
+      position: relative;
+      z-index: 2;
+      min-height: 500px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .hero-logo-wrap {
+      display: flex;
+      justify-content: center;
+      padding-top: 0;
+    }
+
+    .discipline-grid {
+      width: min(100%, 430px);
+      margin: 8px auto 0;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      text-align: center;
+    }
+
+    .discipline-item {
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(0,0,0,0.35);
+      border-radius: 18px;
+      padding: 20px 14px;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.76);
+    }
+
+    .discipline-item-wide {
+      grid-column: 1 / -1;
+    }
+
+    .trial-box {
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(10px);
+      border-radius: 24px;
+      padding: 24px;
+    }
+
+    .trial-box .label,
+    .section-label {
+      margin: 0;
+      color: rgba(255,255,255,0.45);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+    }
+
+    .trial-box h3 {
+      margin: 10px 0 0;
+      font-size: 26px;
+      text-transform: uppercase;
+    }
+
+    .trial-box p {
+      margin: 12px 0 0;
+      font-size: 14px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.60);
+    }
+
+    .studio-contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .studio-contact-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 11px 15px;
+      font-size: 11px;
+      font-weight: 950;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      transition: 0.2s ease;
+      border: 1px solid rgba(255,255,255,0.16);
+      color: white;
+      background: rgba(255,255,255,0.06);
+    }
+
+    .studio-contact-btn:hover {
+      background: white;
+      color: black;
+    }
+
+    .studio-contact-btn.primary {
+      background: var(--olive);
+      border-color: var(--olive);
+      color: white;
+    }
+
+    .studio-contact-btn.primary:hover {
+      background: white;
+      color: black;
+    }
+
+    .stats {
+      background: white;
+      color: black;
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      background: rgba(0,0,0,0.10);
+      gap: 1px;
+    }
+
+    .stat {
+      background: white;
+      text-align: center;
+      padding: 34px 18px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 42px;
+      letter-spacing: -0.08em;
+      font-weight: 950;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 8px;
+      color: rgba(0,0,0,0.56);
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
 
     .section { padding: 96px 0; }
-    .section-header { display: flex; justify-content: space-between; align-items: end; gap: 40px; margin-bottom: 48px; }
-    .section-title { margin: 16px 0 0; max-width: 760px; font-size: clamp(46px,6vw,82px); line-height: .94; letter-spacing: -.06em; text-transform: uppercase; font-weight: 950; }
-    .section-copy { max-width: 440px; color: var(--muted); line-height: 1.7; font-size: 16px; }
-    .grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
-    .card { border: 1px solid var(--soft); border-radius: 26px; background: var(--panel); padding: 26px; }
-    .program-card { min-height: 360px; display: flex; flex-direction: column; transition: .2s ease; }
-    .program-card:hover { transform: translateY(-4px); background: rgba(255,255,255,.07); }
-    .card-icon { width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,.15); background: rgba(255,255,255,.05); border-radius: 999px; margin-bottom: 42px; font-size: 22px; }
-    .eyebrow { font-size: 12px; text-transform: uppercase; letter-spacing: .24em; color: rgba(255,255,255,.45); font-weight: 800; }
-    .program-card h3 { margin: 18px 0 0; font-size: 30px; line-height: 1; letter-spacing: -.05em; }
-    .program-card p { margin: 22px 0 0; color: rgba(255,255,255,.58); font-size: 14px; line-height: 1.7; }
-    .program-more { margin-top: auto; padding-top: 32px; color: rgba(255,255,255,.75); font-size: 13px; letter-spacing: .16em; font-weight: 950; text-transform: uppercase; }
 
-    .method { border-top: 1px solid var(--soft); border-bottom: 1px solid var(--soft); background: rgba(255,255,255,.03); }
-    .method-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 60px; }
+    .section-header {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+
+    .section-title {
+      margin: 16px 0 0;
+      max-width: 760px;
+      font-size: clamp(46px, 6vw, 82px);
+      line-height: 0.94;
+      letter-spacing: -0.06em;
+      text-transform: uppercase;
+      font-weight: 950;
+    }
+
+    .section-copy {
+      max-width: 480px;
+      color: rgba(255,255,255,0.60);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    .program-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .program-card,
+    .service-card {
+      min-height: 360px;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      background: rgba(255,255,255,0.04);
+      padding: 26px;
+      transition: 0.2s ease;
+    }
+
+    .program-card:hover,
+    .service-card:hover {
+      transform: translateY(-4px);
+      background: rgba(255,255,255,0.07);
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.05);
+      border-radius: 999px;
+      margin-bottom: 42px;
+      font-size: 22px;
+    }
+
+    .program-eyebrow,
+    .service-eyebrow {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
+      color: rgba(255,255,255,0.45);
+      font-weight: 800;
+    }
+
+    .program-card h3,
+    .service-card h3 {
+      margin: 18px 0 0;
+      font-size: 30px;
+      line-height: 1;
+      letter-spacing: -0.05em;
+      text-transform: uppercase;
+    }
+
+    .program-card p,
+    .service-card p {
+      margin: 22px 0 0;
+      color: rgba(255,255,255,0.58);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .program-more {
+      margin-top: auto;
+      padding-top: 32px;
+      color: rgba(255,255,255,0.75);
+      font-size: 13px;
+      letter-spacing: 0.16em;
+      font-weight: 900;
+      text-transform: uppercase;
+      display: inline-block;
+    }
+
+    .program-more:hover { color: white; }
+
+    .method {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .method-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
     .method-cards { display: grid; gap: 16px; }
-    .method-card { display: flex; gap: 20px; background: rgba(0,0,0,.42); }
-    .mini-icon { width: 42px; height: 42px; border-radius: 999px; background: #fff; color: #000; display: flex; align-items: center; justify-content: center; flex: 0 0 auto; font-weight: 950; }
-    .method-card h3 { margin: 0; font-size: 22px; text-transform: uppercase; letter-spacing: -.03em; }
-    .method-card p { margin: 10px 0 0; color: rgba(255,255,255,.58); line-height: 1.7; font-size: 14px; }
 
-    .start-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 24px; }
-    .big-box { border: 1px solid var(--soft); border-radius: 32px; background: var(--panel); padding: 44px; }
+    .method-card {
+      display: flex;
+      gap: 20px;
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      background: rgba(0,0,0,0.42);
+      padding: 24px;
+    }
+
+    .mini-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      background: white;
+      color: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      font-weight: 950;
+    }
+
+    .method-card h3 {
+      margin: 0;
+      font-size: 22px;
+      text-transform: uppercase;
+      letter-spacing: -0.03em;
+    }
+
+    .method-card p {
+      margin: 10px 0 0;
+      color: rgba(255,255,255,0.58);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    .services-section {
+      border-top: 16px solid var(--black);
+      border-bottom: 1px solid rgba(0,0,0,0.10);
+      background:
+        radial-gradient(circle at top right, rgba(83,102,80,0.18), transparent 34%),
+        linear-gradient(180deg, #f2f2f0 0%, #ffffff 100%);
+      color: #111111;
+    }
+
+    .services-section .section-label {
+      color: rgba(83,102,80,0.82);
+    }
+
+    .services-section .section-title {
+      color: #111111;
+    }
+
+    .services-section .section-copy {
+      color: rgba(0,0,0,0.62);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .services-section .service-card {
+      background: rgba(255,255,255,0.86);
+      border-color: rgba(0,0,0,0.10);
+      color: #111111;
+      box-shadow: 0 22px 70px rgba(0,0,0,0.08);
+    }
+
+    .services-section .service-card:hover {
+      background: #ffffff;
+    }
+
+    .services-section .service-eyebrow,
+    .services-section .service-card p {
+      color: rgba(0,0,0,0.62);
+    }
+
+    .services-section .card-icon {
+      border-color: rgba(0,0,0,0.12);
+      background: rgba(83,102,80,0.10);
+      color: var(--olive);
+    }
+
+    .services-cta {
+      margin-top: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      border: 1px solid rgba(0,0,0,0.12);
+      background: #0b0b0b;
+      color: white;
+      border-radius: 32px;
+      padding: 30px;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.20);
+    }
+
+    .services-cta small {
+      display: block;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      font-weight: 950;
+      margin-bottom: 8px;
+    }
+
+    .services-cta strong {
+      font-size: clamp(24px, 4vw, 34px);
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+    }
+
+    .start-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+    }
+
+    .start-box,
+    .instagram-box {
+      border-radius: 32px;
+      padding: 44px;
+    }
+
+    .start-box {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+    }
+
     .step-list { margin-top: 46px; display: grid; gap: 18px; }
-    .step { display: flex; gap: 18px; align-items: center; border-top: 1px solid var(--soft); padding-top: 20px; }
-    .step-number { width: 42px; height: 42px; border-radius: 999px; background: #fff; color: #000; font-weight: 950; display: flex; align-items: center; justify-content: center; flex: 0 0 auto; }
-    .step p { margin: 0; color: rgba(255,255,255,.82); font-weight: 700; font-size: 18px; line-height: 1.5; }
-    .instagram-box { background: #fff; color: #000; }
-    .instagram-box h3 { margin: 34px 0 0; font-size: 42px; line-height: .95; text-transform: uppercase; letter-spacing: -.06em; }
-    .instagram-box p { color: rgba(0,0,0,.65); line-height: 1.7; }
 
-    .schedule-section { background: var(--black); border-top: 1px solid var(--soft); border-bottom: 1px solid var(--soft); }
-    .schedule-card { margin-top: 28px; box-shadow: 0 30px 100px rgba(0,0,0,.22); }
-    .schedule-title { overflow: hidden; border: 1px solid var(--soft); border-radius: 22px; margin-bottom: 26px; }
-    .schedule-title h3 { margin: 0; background: var(--olive); color: #fff; text-align: center; padding: 22px; font-size: clamp(25px,4vw,42px); letter-spacing: .24em; text-transform: uppercase; font-weight: 950; }
-    .schedule-title div { background: #303030; color: #fff; text-align: center; padding: 14px; font-size: 13px; letter-spacing: .35em; text-transform: uppercase; font-weight: 950; }
+    .step {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+    }
+
+    .step-number {
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      background: white;
+      color: black;
+      font-weight: 950;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+    }
+
+    .step p {
+      margin: 0;
+      color: rgba(255,255,255,0.82);
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 1.5;
+    }
+
+    .instagram-box { background: white; color: black; }
+
+    .instagram-box h3 {
+      margin: 34px 0 0;
+      font-size: 42px;
+      line-height: 0.95;
+      text-transform: uppercase;
+      letter-spacing: -0.06em;
+    }
+
+    .instagram-box p {
+      color: rgba(0,0,0,0.65);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    .schedule-section {
+      background: var(--black-2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .schedule-card {
+      border: 1px solid var(--border);
+      border-radius: 32px;
+      background: rgba(255,255,255,0.04);
+      padding: 28px;
+      margin-top: 28px;
+      box-shadow: 0 30px 100px rgba(0,0,0,0.22);
+    }
+
+    .schedule-title {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      margin-bottom: 26px;
+    }
+
+    .schedule-title h3 {
+      margin: 0;
+      background: var(--olive);
+      color: white;
+      text-align: center;
+      padding: 22px;
+      font-size: clamp(25px, 4vw, 42px);
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      font-weight: 950;
+    }
+
+    .schedule-title div {
+      background: #303030;
+      color: white;
+      text-align: center;
+      padding: 14px;
+      font-size: 13px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      font-weight: 950;
+    }
+
     .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-    table { width: 100%; min-width: 850px; border-collapse: separate; border-spacing: 0 12px; }
-    th { padding: 10px 8px; color: rgba(255,255,255,.45); font-size: 11px; text-transform: uppercase; letter-spacing: .28em; font-weight: 950; text-align: center; }
+
+    table {
+      width: 100%;
+      min-width: 850px;
+      border-collapse: separate;
+      border-spacing: 0 12px;
+    }
+
+    th {
+      padding: 10px 8px;
+      color: rgba(255,255,255,0.45);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.28em;
+      font-weight: 950;
+      text-align: center;
+    }
+
     th:first-child { text-align: left; width: 120px; }
+
     td { padding: 6px 8px; text-align: center; }
-    .time-cell { color: #fff; text-align: left; font-size: 16px; font-weight: 950; letter-spacing: .18em; text-transform: uppercase; white-space: nowrap; }
-    .class-cell { min-height: 48px; border-radius: 10px; display: flex; align-items: center; justify-content: center; padding: 12px 10px; font-size: 11px; font-weight: 950; letter-spacing: .16em; text-transform: uppercase; line-height: 1.35; }
+
+    .time-cell {
+      color: white;
+      text-align: left;
+      font-size: 16px;
+      font-weight: 950;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .class-cell {
+      min-height: 48px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 10px;
+      font-size: 11px;
+      font-weight: 950;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      line-height: 1.35;
+    }
+
     .class-light { background: var(--sage); color: var(--olive-dark); }
-    .class-dark { background: var(--olive); color: #fff; }
-    .class-empty { min-height: 48px; border-radius: 10px; border: 1px solid rgba(255,255,255,.05); background: rgba(255,255,255,.02); }
-    .notes { margin-top: 28px; border: 1px solid var(--soft); background: var(--panel); border-radius: 24px; padding: 24px; color: rgba(255,255,255,.70); font-size: 14px; line-height: 1.7; }
-    .notes-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px 28px; }
+    .class-dark { background: var(--olive); color: white; }
 
-    .pricing-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 24px; }
-    .pricing-card { border-radius: 32px; border: 1px solid var(--soft); background: var(--panel); color: #fff; padding: 32px; }
-    .pricing-card.featured { background: #fff; color: #000; }
-    .pricing-title { background: rgba(0,0,0,.85); color: #fff; border-radius: 18px; text-align: center; padding: 18px; margin-bottom: 26px; }
-    .pricing-title h3 { margin: 0; font-size: 28px; letter-spacing: .24em; text-transform: uppercase; }
-    .price-row { display: flex; align-items: center; justify-content: space-between; gap: 18px; border-bottom: 1px solid rgba(255,255,255,.10); padding: 16px 0; font-size: 22px; }
-    .featured .price-row { border-bottom-color: rgba(0,0,0,.10); }
-    .price-label { color: rgba(255,255,255,.80); letter-spacing: .08em; }
-    .featured .price-label { color: rgba(0,0,0,.80); }
-    .price-value { font-weight: 950; letter-spacing: .10em; white-space: nowrap; }
-    .badge { display: inline-flex; margin-left: 8px; padding: 5px 10px; border-radius: 999px; background: var(--olive); color: #fff; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; font-weight: 950; }
-    .contact-strip { margin-top: 28px; display: flex; align-items: center; justify-content: space-between; gap: 24px; border: 1px solid var(--soft); background: var(--panel); border-radius: 32px; padding: 30px; }
-    .contact-strip small { display: block; color: rgba(255,255,255,.45); letter-spacing: .32em; text-transform: uppercase; font-weight: 950; margin-bottom: 8px; }
-    .contact-strip strong { font-size: clamp(24px,4vw,34px); letter-spacing: .08em; }
+    .class-empty {
+      min-height: 48px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.05);
+      background: rgba(255,255,255,0.02);
+    }
 
-    .gallery-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
-    .gallery-card { position: relative; min-height: 330px; overflow: hidden; border-radius: 26px; border: 1px solid var(--soft); background-size: cover; background-position: center; background-repeat: no-repeat; isolation: isolate; }
+    .notes {
+      margin-top: 28px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      border-radius: 24px;
+      padding: 24px;
+      color: rgba(255,255,255,0.70);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .notes-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px 28px;
+    }
+
+    .notes strong { color: white; }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .pricing-card {
+      border-radius: 32px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      color: white;
+      padding: 32px;
+    }
+
+    .pricing-card.featured {
+      background: white;
+      color: black;
+      border-color: rgba(255,255,255,0.20);
+    }
+
+    .pricing-title {
+      background: rgba(0,0,0,0.85);
+      color: white;
+      border-radius: 18px;
+      text-align: center;
+      padding: 18px;
+      margin-bottom: 26px;
+    }
+
+    .pricing-title h3 {
+      margin: 0;
+      font-size: 28px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+    }
+
+    .price-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+      padding: 16px 0;
+      font-size: 22px;
+    }
+
+    .pricing-card.featured .price-row { border-bottom-color: rgba(0,0,0,0.10); }
+
+    .price-label { color: rgba(255,255,255,0.80); letter-spacing: 0.08em; }
+    .pricing-card.featured .price-label { color: rgba(0,0,0,0.80); }
+
+    .price-value {
+      font-weight: 950;
+      letter-spacing: 0.10em;
+      white-space: nowrap;
+    }
+
+    .badge {
+      display: inline-flex;
+      margin-left: 8px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: var(--olive);
+      color: white;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 950;
+      vertical-align: middle;
+    }
+
+    .contact-strip {
+      margin-top: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      border-radius: 32px;
+      padding: 30px;
+    }
+
+    .contact-strip small {
+      display: block;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      font-weight: 950;
+      margin-bottom: 8px;
+    }
+
+    .contact-strip strong {
+      font-size: clamp(24px, 4vw, 34px);
+      letter-spacing: 0.08em;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .gallery-card {
+      position: relative;
+      min-height: 330px;
+      overflow: hidden;
+      border-radius: 26px;
+      border: 1px solid var(--border);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      isolation: isolate;
+    }
+
     .gallery-card.tall { min-height: 420px; }
-    .gallery-card::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.82)), radial-gradient(circle at 40% 20%,rgba(255,255,255,.18),transparent 38%); }
-    .gallery-content { position: absolute; z-index: 2; left: 24px; right: 24px; bottom: 24px; }
-    .gallery-content small { color: rgba(255,255,255,.65); font-size: 12px; letter-spacing: .3em; text-transform: uppercase; }
-    .gallery-content h3 { margin: 10px 0 0; font-size: 28px; letter-spacing: -.05em; text-transform: uppercase; color: #fff; }
 
-    .location { background: #fff; color: #000; border-top: 1px solid var(--soft); }
-    .location-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 56px; align-items: center; }
-    .location .section-label { color: rgba(0,0,0,.45); }
-    .location p { color: rgba(0,0,0,.62); font-size: 18px; line-height: 1.7; }
-    .location-card { min-height: 390px; border-radius: 32px; border: 1px solid rgba(0,0,0,.10); background: var(--bone); padding: 26px; }
-    .location-card-inner { height: 100%; min-height: 338px; display: flex; flex-direction: column; justify-content: space-between; border-radius: 24px; border: 1px solid rgba(0,0,0,.10); background: #fff; padding: 26px; }
-    .location-top { display: flex; justify-content: space-between; gap: 24px; }
-    .location-card h3 { margin: 12px 0 0; font-size: clamp(34px,5vw,48px); line-height: .94; letter-spacing: -.06em; text-transform: uppercase; }
+    .gallery-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.82)),
+        radial-gradient(circle at 40% 20%, rgba(255,255,255,0.18), transparent 38%);
+    }
 
-    .footer { border-top: 1px solid var(--soft); padding: 40px 0; background: var(--bg); }
-    .footer-inner { display: flex; justify-content: space-between; gap: 28px; align-items: center; }
-    .footer-sub { margin: 18px 0 0; color: rgba(255,255,255,.45); font-size: 12px; letter-spacing: .25em; text-transform: uppercase; }
-    .footer-links { display: flex; flex-wrap: wrap; gap: 16px; color: rgba(255,255,255,.55); font-size: 12px; letter-spacing: .2em; text-transform: uppercase; font-weight: 950; }
+    .gallery-content {
+      position: absolute;
+      z-index: 2;
+      left: 24px;
+      right: 24px;
+      bottom: 24px;
+    }
 
-    html[data-theme="light"] { --bg:#f2f2f0; --panel:rgba(255,255,255,.78); --text:#111; --muted:rgba(0,0,0,.62); --soft:rgba(0,0,0,.10); }
-    html[data-theme="light"] body, html[data-theme="light"] .page, html[data-theme="light"] .section, html[data-theme="light"] .hero { background: #f2f2f0; color: #111; }
-    html[data-theme="light"] header { background: rgba(242,242,240,.92); border-bottom-color: rgba(0,0,0,.10); }
-    html[data-theme="light"] nav { color: rgba(0,0,0,.62); }
-    html[data-theme="light"] nav button:hover, html[data-theme="light"] .footer-links a:hover, html[data-theme="light"] .footer-links button:hover { color: var(--olive); }
-    html[data-theme="light"] .theme-toggle, html[data-theme="light"] .menu-btn { border-color: rgba(0,0,0,.15); background: rgba(0,0,0,.04); color: #111; }
-    html[data-theme="light"] .mobile-nav { background: rgba(242,242,240,.98); border-top-color: rgba(0,0,0,.10); }
-    html[data-theme="light"] .mobile-nav button, html[data-theme="light"] .mobile-nav a { color: rgba(0,0,0,.68); border-bottom-color: rgba(0,0,0,.08); }
-    html[data-theme="light"] .hero::before, html[data-theme="light"] .hero::after { background: var(--olive); opacity: .18; }
-    html[data-theme="light"] .pill { border-color: rgba(0,0,0,.14); color: rgba(0,0,0,.62); }
-    html[data-theme="light"] .hero p, html[data-theme="light"] .section-copy { color: rgba(0,0,0,.65); }
-    html[data-theme="light"] .hero-card { background: radial-gradient(circle at top left,rgba(83,102,80,.22),transparent 32%), linear-gradient(135deg,rgba(255,255,255,.86),rgba(255,255,255,.42)); box-shadow: 0 30px 90px rgba(0,0,0,.12); }
-    html[data-theme="light"] .discipline-item { border-color: rgba(0,0,0,.10); background: rgba(255,255,255,.70); color: var(--olive-dark); }
-    html[data-theme="light"] .trial-box { border-color: rgba(0,0,0,.10); background: rgba(255,255,255,.78); }
-    html[data-theme="light"] .trial-box p, html[data-theme="light"] .program-card p, html[data-theme="light"] .method-card p, html[data-theme="light"] .notes, html[data-theme="light"] .footer-sub { color: rgba(0,0,0,.62); }
-    html[data-theme="light"] .label, html[data-theme="light"] .section-label, html[data-theme="light"] .eyebrow { color: rgba(83,102,80,.75); }
-    html[data-theme="light"] .mini-btn { border-color: rgba(0,0,0,.12); color: #111; background: rgba(0,0,0,.035); }
-    html[data-theme="light"] .mini-btn.primary, html[data-theme="light"] .mini-btn:hover { background: var(--olive); color: #fff; }
-    html[data-theme="light"] .method { background: #ededeb; border-color: rgba(0,0,0,.10); }
-    html[data-theme="light"] .mini-icon, html[data-theme="light"] .step-number { background: var(--olive); color: #fff; }
-    html[data-theme="light"] .step p { color: rgba(0,0,0,.78); }
-    html[data-theme="light"] .schedule-section { background: #f2f2f0; }
-    html[data-theme="light"] th { color: rgba(0,0,0,.45); }
-    html[data-theme="light"] .time-cell { color: #111; }
-    html[data-theme="light"] .class-empty { border-color: rgba(0,0,0,.06); background: rgba(0,0,0,.025); }
-    html[data-theme="light"] .pricing-card { background: #fff; color: #111; }
-    html[data-theme="light"] .pricing-card.featured { background: var(--olive); color: #fff; }
-    html[data-theme="light"] .featured .price-label { color: rgba(255,255,255,.82); }
-    html[data-theme="light"] .price-label { color: rgba(0,0,0,.72); }
-    html[data-theme="light"] .footer { background: #f2f2f0; }
-    html[data-theme="light"] .footer-links { color: rgba(0,0,0,.56); }
+    .gallery-content small {
+      color: rgba(255,255,255,0.65);
+      font-size: 12px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+    }
+
+    .gallery-content h3 {
+      margin: 10px 0 0;
+      font-size: 28px;
+      letter-spacing: -0.05em;
+      text-transform: uppercase;
+      color: white;
+    }
+
+    .location {
+      background: white;
+      color: black;
+      border-top: 1px solid var(--border);
+    }
+
+    .location-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .location .section-label { color: rgba(0,0,0,0.45); }
+
+    .location p {
+      color: rgba(0,0,0,0.62);
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .location-card {
+      min-height: 390px;
+      border-radius: 32px;
+      border: 1px solid rgba(0,0,0,0.10);
+      background: var(--bone);
+      padding: 26px;
+    }
+
+    .location-card-inner {
+      height: 100%;
+      min-height: 338px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-radius: 24px;
+      border: 1px solid rgba(0,0,0,0.10);
+      background: white;
+      padding: 26px;
+    }
+
+    .location-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .location-card h3 {
+      margin: 12px 0 0;
+      font-size: clamp(34px, 5vw, 48px);
+      line-height: 0.94;
+      letter-spacing: -0.06em;
+      text-transform: uppercase;
+    }
+
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 0;
+      background: var(--black);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .footer-sub {
+      margin: 18px 0 0;
+      color: rgba(255,255,255,0.45);
+      font-size: 12px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      color: rgba(255,255,255,0.55);
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 900;
+    }
+
+    .footer-links button,
+    .footer-links a {
+      color: inherit;
+      background: none;
+      border: 0;
+      padding: 0;
+      cursor: pointer;
+      font-size: inherit;
+      letter-spacing: inherit;
+      text-transform: inherit;
+      font-weight: inherit;
+    }
+
+    .footer-links button:hover,
+    .footer-links a:hover { color: white; }
+
+    html[data-theme="light"] body,
+    html[data-theme="light"] .page {
+      background: #f2f2f0;
+      color: #111111;
+    }
+
+    html[data-theme="light"] .header {
+      background: rgba(242, 242, 240, 0.92);
+      border-bottom: 1px solid rgba(0,0,0,0.10);
+    }
+
+    html[data-theme="light"] .service-switcher {
+      background:
+        radial-gradient(circle at top left, rgba(83,102,80,0.12), transparent 34%),
+        rgba(255,255,255,0.72);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+
+    html[data-theme="light"] .module-tabs {
+      border-color: rgba(0,0,0,0.10);
+      background: rgba(0,0,0,0.035);
+    }
+
+    html[data-theme="light"] .module-tab {
+      color: rgba(0,0,0,0.56);
+    }
+
+    html[data-theme="light"] .module-tab.active {
+      background: var(--olive);
+      color: white;
+    }
+
+    html[data-theme="light"] .module-tab:not(.active):hover {
+      border-color: rgba(0,0,0,0.12);
+      background: white;
+      color: #111111;
+    }
+
+    html[data-theme="light"] .desktop-systems-link {
+      border-color: rgba(0,0,0,0.14);
+      background: rgba(0,0,0,0.04);
+      color: #111111;
+    }
+
+    html[data-theme="light"] .desktop-systems-link:hover {
+      background: var(--olive);
+      border-color: var(--olive);
+      color: white;
+    }
+
+    html[data-theme="light"] .nav { color: rgba(0,0,0,0.62); }
+    html[data-theme="light"] .nav button:hover { color: var(--olive); }
+
+    html[data-theme="light"] .theme-toggle,
+    html[data-theme="light"] .language-toggle {
+      border-color: rgba(0,0,0,0.15);
+      background: rgba(0,0,0,0.04);
+      color: #111111;
+    }
+
+    html[data-theme="light"] .theme-toggle:hover,
+    html[data-theme="light"] .language-toggle:hover {
+      background: var(--olive);
+      color: white;
+    }
+
+    html[data-theme="light"] .mobile-menu-button {
+      border-color: rgba(0,0,0,0.20);
+      color: #111111;
+    }
+
+    html[data-theme="light"] .mobile-nav {
+      background: rgba(242,242,240,0.98);
+      border-top: 1px solid rgba(0,0,0,0.10);
+    }
+
+    html[data-theme="light"] .mobile-nav button,
+    html[data-theme="light"] .mobile-nav a {
+      color: rgba(0,0,0,0.68);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+
+    html[data-theme="light"] .hero {
+      background: #f2f2f0;
+      color: #111111;
+      border-bottom: 1px solid rgba(0,0,0,0.10);
+    }
+
+    html[data-theme="light"] .hero::before,
+    html[data-theme="light"] .hero::after {
+      background: var(--olive);
+      opacity: 0.18;
+    }
+
+    html[data-theme="light"] .hero h1 { color: #111111; }
+    html[data-theme="light"] .hero p { color: rgba(0,0,0,0.65); }
+
+    html[data-theme="light"] .pill {
+      border-color: rgba(0,0,0,0.14);
+      color: rgba(0,0,0,0.62);
+    }
+
+    html[data-theme="light"] .hero-card {
+      background:
+        radial-gradient(circle at top left, rgba(83,102,80,0.22), transparent 32%),
+        linear-gradient(135deg, rgba(255,255,255,0.86), rgba(255,255,255,0.42));
+      border-color: rgba(0,0,0,0.10);
+      box-shadow: 0 30px 90px rgba(0,0,0,0.12);
+    }
+
+    html[data-theme="light"] .discipline-item {
+      border-color: rgba(0,0,0,0.10);
+      background: rgba(255,255,255,0.70);
+      color: var(--olive-dark);
+    }
+
+    html[data-theme="light"] .trial-box {
+      border-color: rgba(0,0,0,0.10);
+      background: rgba(255,255,255,0.78);
+    }
+
+    html[data-theme="light"] .trial-box .label,
+    html[data-theme="light"] .section-label {
+      color: rgba(83,102,80,0.75);
+    }
+
+    html[data-theme="light"] .trial-box h3 { color: #111111; }
+    html[data-theme="light"] .trial-box p { color: rgba(0,0,0,0.60); }
+
+    html[data-theme="light"] .studio-contact-btn {
+      border-color: rgba(0,0,0,0.12);
+      color: #111111;
+      background: rgba(0,0,0,0.035);
+    }
+
+    html[data-theme="light"] .studio-contact-btn:hover {
+      background: var(--olive);
+      color: white;
+    }
+
+    html[data-theme="light"] .studio-contact-btn.primary {
+      background: var(--olive);
+      color: white;
+      border-color: var(--olive);
+    }
+
+    html[data-theme="light"] .section,
+    html[data-theme="light"] .services-section {
+      background: #f2f2f0;
+      color: #111111;
+    }
+
+    html[data-theme="light"] .section-title { color: #111111; }
+    html[data-theme="light"] .section-copy { color: rgba(0,0,0,0.62); }
+
+    html[data-theme="light"] .program-card,
+    html[data-theme="light"] .service-card,
+    html[data-theme="light"] .start-box,
+    html[data-theme="light"] .method-card,
+    html[data-theme="light"] .schedule-card,
+    html[data-theme="light"] .notes,
+    html[data-theme="light"] .contact-strip,
+    html[data-theme="light"] .services-cta {
+      background: rgba(255,255,255,0.78);
+      border-color: rgba(0,0,0,0.10);
+      color: #111111;
+    }
+
+    html[data-theme="light"] .program-eyebrow,
+    html[data-theme="light"] .service-eyebrow,
+    html[data-theme="light"] .program-card p,
+    html[data-theme="light"] .service-card p,
+    html[data-theme="light"] .method-card p,
+    html[data-theme="light"] .notes,
+    html[data-theme="light"] .footer-sub {
+      color: rgba(0,0,0,0.62);
+    }
+
+    html[data-theme="light"] .program-more { color: var(--olive); }
+
+    html[data-theme="light"] .card-icon {
+      border-color: rgba(0,0,0,0.12);
+      background: rgba(83,102,80,0.10);
+      color: var(--olive);
+    }
+
+    html[data-theme="light"] .method {
+      background: #ededeb;
+      border-color: rgba(0,0,0,0.10);
+    }
+
+    html[data-theme="light"] .mini-icon,
+    html[data-theme="light"] .step-number {
+      background: var(--olive);
+      color: white;
+    }
+
+    html[data-theme="light"] .step { border-top-color: rgba(0,0,0,0.10); }
+    html[data-theme="light"] .step p { color: rgba(0,0,0,0.78); }
+
+    html[data-theme="light"] .instagram-box {
+      background: white;
+      border: 1px solid rgba(0,0,0,0.10);
+    }
+
+    html[data-theme="light"] .schedule-section {
+      background: #f2f2f0;
+      border-color: rgba(0,0,0,0.10);
+    }
+
+    html[data-theme="light"] th { color: rgba(0,0,0,0.45); }
+    html[data-theme="light"] .time-cell { color: #111111; }
+
+    html[data-theme="light"] .class-empty {
+      border-color: rgba(0,0,0,0.06);
+      background: rgba(0,0,0,0.025);
+    }
+
+    html[data-theme="light"] .notes strong { color: #111111; }
+
+    html[data-theme="light"] .pricing-card {
+      background: white;
+      color: #111111;
+      border-color: rgba(0,0,0,0.10);
+    }
+
+    html[data-theme="light"] .pricing-card.featured {
+      background: var(--olive);
+      color: white;
+    }
+
+    html[data-theme="light"] .pricing-card.featured .price-row {
+      border-bottom-color: rgba(255,255,255,0.18);
+    }
+
+    html[data-theme="light"] .pricing-card.featured .price-label {
+      color: rgba(255,255,255,0.82);
+    }
+
+    html[data-theme="light"] .price-label { color: rgba(0,0,0,0.72); }
+
+    html[data-theme="light"] .gallery-card { border-color: rgba(0,0,0,0.10); }
+
+    html[data-theme="light"] .services-cta small {
+      color: rgba(83,102,80,0.75);
+    }
+
+    html[data-theme="light"] .footer {
+      background: #f2f2f0;
+      border-top: 1px solid rgba(0,0,0,0.10);
+    }
+
+    html[data-theme="light"] .footer-links { color: rgba(0,0,0,0.56); }
+
+    html[data-theme="light"] .footer-links button:hover,
+    html[data-theme="light"] .footer-links a:hover {
+      color: var(--olive);
+    }
+
+
+    /* Ajustes de legibilidad en modo claro */
+    html[data-theme="light"] .program-more {
+      color: var(--olive-dark) !important;
+      text-decoration: underline;
+      text-underline-offset: 6px;
+      text-decoration-thickness: 1px;
+      text-decoration-color: rgba(52,66,54,0.45);
+    }
+
+    html[data-theme="light"] .program-more:hover {
+      color: #111111 !important;
+      text-decoration-color: #111111;
+    }
+
+    html[data-theme="light"] .method-card {
+      background: #ffffff !important;
+      border-color: rgba(0,0,0,0.10) !important;
+      color: #111111 !important;
+      box-shadow: 0 16px 45px rgba(0,0,0,0.06);
+    }
+
+    html[data-theme="light"] .method-card h3 {
+      color: #111111;
+    }
+
+    html[data-theme="light"] .method-card p {
+      color: rgba(0,0,0,0.62) !important;
+    }
+
+    html[data-theme="light"] .schedule-section .btn-outline {
+      background: var(--olive);
+      border-color: var(--olive);
+      color: #ffffff;
+    }
+
+    html[data-theme="light"] .schedule-section .btn-outline:hover {
+      background: #111111;
+      border-color: #111111;
+      color: #ffffff;
+    }
+
+    html[data-theme="light"] .contact-strip small {
+      color: rgba(83,102,80,0.78);
+    }
+
+    html[data-theme="light"] .contact-strip strong {
+      color: #111111;
+    }
+
+    html[data-theme="light"] .contact-strip .btn-white {
+      background: var(--olive);
+      border-color: var(--olive);
+      color: #ffffff;
+    }
+
+    html[data-theme="light"] .contact-strip .btn-white:hover {
+      background: #111111;
+      border-color: #111111;
+      color: #ffffff;
+    }
+
+    html[data-theme="light"] .services-cta .btn-white {
+      background: var(--olive);
+      border-color: var(--olive);
+      color: #ffffff;
+    }
+
+    html[data-theme="light"] .services-cta .btn-outline {
+      border-color: rgba(0,0,0,0.20);
+      color: #111111;
+      background: transparent;
+    }
+
+    html[data-theme="light"] .services-cta .btn-outline:hover {
+      background: #111111;
+      color: #ffffff;
+      border-color: #111111;
+    }
+
+    @media (max-width: 1180px) {
+      .nav { display: none; }
+
+      .header-actions .btn,
+      .desktop-systems-link {
+        display: none;
+      }
+
+      .mobile-menu-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
 
     @media (max-width: 1040px) {
-      nav { display: none; }
-      .header-actions .btn { display: none; }
-      .menu-btn { display: inline-flex; align-items: center; justify-content: center; }
-      .hero-grid, .method-grid, .start-grid, .location-grid { grid-template-columns: 1fr; }
-      .grid-4, .stats-grid, .pricing-grid, .gallery-grid { grid-template-columns: repeat(2,1fr); }
+      .hero-grid,
+      .method-grid,
+      .start-grid,
+      .location-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .program-grid,
+      .services-grid,
+      .stats-grid,
+      .pricing-grid,
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
       .section-header { display: block; }
       .section-copy { margin-top: 22px; }
-      .contact-strip, .footer-inner { flex-direction: column; align-items: flex-start; }
+
+      .contact-strip,
+      .services-cta,
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
       .notes-grid { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 640px) {
-      .container, .header-inner { width: min(100% - 28px,var(--max)); }
-      .logo-header { height: 42px; max-width: 180px; }
-      .logo-hero { height: 108px; }
-      .logo-card, .logo-footer { height: 48px; }
-      .theme-toggle { padding: 11px 13px; font-size: 10px; }
-      h1 { font-size: 54px; }
+      .container,
+      .header-inner,
+      .service-switcher-inner {
+        width: min(100% - 28px, var(--max-width));
+      }
+
+      .service-switcher-inner {
+        min-height: 46px;
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+        gap: 4px;
+        font-size: 10px;
+        letter-spacing: 0.14em;
+      }
+
+      .service-switcher button {
+        font-size: 10px;
+      }
+
+      .brand-logo-header { height: 42px; max-width: 180px; }
+      .brand-logo-hero { height: 108px; }
+      .brand-logo-card,
+      .brand-logo-footer { height: 48px; }
+
+      .theme-toggle,
+      .language-toggle {
+        padding: 11px 13px;
+        font-size: 10px;
+      }
+
+      .hero h1 { font-size: 54px; }
       .hero p { font-size: 17px; }
-      .hero-card { padding: 22px; min-height: 500px; }
-      .mini-actions { display: grid; grid-template-columns: 1fr; }
-      .grid-4, .stats-grid, .pricing-grid, .gallery-grid { grid-template-columns: 1fr; }
+
+      .hero-card {
+        padding: 22px;
+        min-height: 500px;
+      }
+
+      .studio-contact-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .discipline-item {
+        padding: 16px 12px;
+        font-size: 11px;
+        letter-spacing: 0.16em;
+      }
+
+      .discipline-grid,
+      .program-grid,
+      .services-grid,
+      .stats-grid,
+      .pricing-grid,
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
       .section { padding: 72px 0; }
-      .big-box, .instagram-box, .pricing-card, .schedule-card { padding: 24px; }
-      .price-row, .price-value { font-size: 18px; }
+
+      .start-box,
+      .instagram-box,
+      .pricing-card,
+      .schedule-card {
+        padding: 24px;
+      }
+
+      .price-row { font-size: 18px; }
+      .price-value { font-size: 18px; }
+
       .footer-links { flex-direction: column; }
     }
   </style>
@@ -275,220 +1690,1098 @@
 
 <body>
   <div class="page">
-    <header>
-      <div class="container header-inner">
-        <button data-scroll="inicio" class="logo-button" aria-label="Inicio ONIT Fighting Studio">
-          <img src="assets/onit-logo-full-white.svg" alt="ONIT Fighting Studio" class="brand-logo logo-header logo-dark">
-          <img src="assets/onit-logo-full-olive.svg" alt="ONIT Fighting Studio" class="brand-logo logo-header logo-light">
+
+    <header class="header">
+      <div class="service-switcher">
+        <div class="service-switcher-inner">
+          <div class="module-tabs" aria-label="Módulos ONIT GBS">
+            <button class="module-tab active" type="button" data-scroll="inicio">
+              <span data-i18n="module.studio">ONIT Fighting Studio</span>
+              <small data-i18n="module.studioSub">Academia de artes marciales</small>
+            </button>
+
+            <button class="module-tab" type="button" data-scroll="servicios">
+              <span data-i18n="module.systems">ONIT Business Systems</span>
+              <small data-i18n="module.systemsSub">Sistematización para empresas</small>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="header-inner">
+        <button data-scroll="inicio" aria-label="Inicio ONIT GBS" style="background:none;border:0;padding:0;cursor:pointer;">
+          <img
+            src="assets/onit-logo-full-white.svg"
+            data-dark-src="assets/onit-logo-full-white.svg"
+            data-light-src="assets/onit-logo-full-olive.svg"
+            alt="ONIT Fighting Studio"
+            class="brand-logo brand-logo-header theme-logo"
+          >
         </button>
 
-        <nav>
-          <button data-scroll="programas">Programas</button>
-          <button data-scroll="horarios">Horarios</button>
-          <button data-scroll="precios">Precios</button>
-          <button data-scroll="ubicacion">Ubicación</button>
+        <nav class="nav">
+          <button data-scroll="programas" data-i18n="nav.programs">Programas</button>
+          <button data-scroll="horarios" data-i18n="nav.schedule">Horarios</button>
+          <button data-scroll="precios" data-i18n="nav.pricing">Precios</button>
+          <button data-scroll="ubicacion" data-i18n="nav.location">Ubicación</button>
         </nav>
 
         <div class="header-actions">
-          <a class="btn btn-olive" target="_blank" rel="noopener" href="https://wa.me/573137044019?text=Hola%20Onit%2C%20quiero%20recibir%20informaci%C3%B3n%20sobre%20clases%2C%20horarios%20y%20precios.">Clase de prueba</a>
-          <button class="theme-toggle" onclick="toggleTheme()" type="button"><span id="themeToggleText">Modo claro</span></button>
-          <button class="menu-btn" onclick="toggleMenu()" aria-label="Abrir menú">☰</button>
+          <button class="desktop-systems-link" type="button" data-scroll="servicios" data-i18n="nav.systems">Sistematización</button>
+
+          <a class="btn btn-olive" target="_blank" rel="noopener" href="https://wa.me/573137044019?text=Hola%20Onit%2C%20quiero%20recibir%20informaci%C3%B3n%20sobre%20clases%2C%20horarios%20y%20precios." data-i18n="buttons.trial">
+            Clase de prueba
+          </a>
+
+          <button class="language-toggle" onclick="toggleLanguage()" type="button">
+            <span id="languageToggleText">English</span>
+          </button>
+
+          <button class="theme-toggle" onclick="toggleTheme()" type="button">
+            <span id="themeToggleText">Modo claro</span>
+          </button>
+
+          <button class="mobile-menu-button" onclick="toggleMenu()" aria-label="Abrir menú">☰</button>
         </div>
       </div>
 
       <div id="mobileNav" class="mobile-nav">
-        <button data-scroll="programas">Programas</button>
-        <button data-scroll="horarios">Horarios</button>
-        <button data-scroll="precios">Precios</button>
-        <button data-scroll="ubicacion">Ubicación</button>
+        <button data-scroll="programas" data-i18n="nav.programs">Programas</button>
+        <button data-scroll="horarios" data-i18n="nav.schedule">Horarios</button>
+        <button data-scroll="precios" data-i18n="nav.pricing">Precios</button>
+        <button data-scroll="ubicacion" data-i18n="nav.location">Ubicación</button>
+        <button data-scroll="servicios" data-i18n="nav.systems">Sistematización</button>
         <a target="_blank" rel="noopener" href="https://wa.me/573137044019?text=Hola%20Onit%2C%20quiero%20recibir%20informaci%C3%B3n%20sobre%20clases%2C%20horarios%20y%20precios.">WhatsApp</a>
-        <button onclick="toggleTheme(); toggleMenu();">Cambiar modo</button>
+        <button onclick="toggleLanguage(); toggleMenu();" data-i18n="buttons.changeLanguage">Cambiar idioma</button>
+        <button onclick="toggleTheme(); toggleMenu();" data-i18n="buttons.changeTheme">Cambiar modo</button>
       </div>
     </header>
 
     <main id="inicio">
+
       <section class="hero">
         <div class="container hero-grid">
           <div>
-            <div class="pill">⌖ Manizales · Barrio Milán</div>
-            <h1>Entrena con estructura. Pelea con intención.</h1>
-            <p>ONIT Fighting Studio es un espacio para entrenar Jiu Jitsu, MMA, Muay Thai y Kickboxing con técnica, comunidad y mentalidad de progreso.</p>
-            <div class="actions">
-              <a class="btn btn-white" target="_blank" rel="noopener" href="https://wa.me/573137044019?text=Hola%20Onit%2C%20quiero%20agendar%20una%20clase%20de%20prueba.">Agendar clase de prueba →</a>
-              <button class="btn btn-outline" data-scroll="horarios">Ver horarios 2026</button>
+            <div class="pill" data-i18n="hero.pill">⌖ Manizales · Barrio Milán</div>
+
+            <h1 data-i18n="hero.title">Entrena con estructura. Pelea con intención.</h1>
+
+            <p data-i18n="hero.copy">
+              ONIT Fighting Studio es un espacio para entrenar Jiu Jitsu, MMA, Muay Thai y Kickboxing con técnica, comunidad y mentalidad de progreso.
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn btn-white" target="_blank" rel="noopener" href="https://wa.me/573137044019?text=Hola%20Onit%2C%20quiero%20agendar%20una%20clase%20de%20prueba." data-i18n="buttons.bookTrial">
+                Agendar clase de prueba →
+              </a>
+              <button class="btn btn-outline" data-scroll="horarios" data-i18n="buttons.viewSchedule">Ver horarios 2026</button>
             </div>
           </div>
 
           <div class="hero-card">
             <div class="hero-card-content">
-              <div class="hero-logo">
-                <img src="assets/onit-logo-full-white.svg" alt="ONIT Fighting Studio" class="brand-logo logo-hero logo-dark">
-                <img src="assets/onit-logo-full-olive.svg" alt="ONIT Fighting Studio" class="brand-logo logo-hero logo-light">
+              <div class="hero-logo-wrap">
+                <img
+                  src="assets/onit-logo-full-white.svg"
+                  data-dark-src="assets/onit-logo-full-white.svg"
+                  data-light-src="assets/onit-logo-full-olive.svg"
+                  alt="ONIT Fighting Studio"
+                  class="brand-logo brand-logo-hero theme-logo"
+                >
               </div>
+
               <div class="discipline-grid">
                 <div class="discipline-item">Jiu Jitsu</div>
                 <div class="discipline-item">MMA</div>
                 <div class="discipline-item">Muay Thai</div>
                 <div class="discipline-item">Kickboxing</div>
+                <div class="discipline-item discipline-item-wide">Niños y adolescentes</div>
               </div>
+
+
+
               <div class="trial-box">
-                <p class="label">Primera clase</p>
-                <h3>Conoce el estudio</h3>
-                <p>Para personas que quieren empezar, volver a entrenar o llevar su rendimiento al siguiente nivel.</p>
-                <div class="mini-actions">
-                  <a class="mini-btn primary" target="_blank" rel="noopener" href="https://wa.me/573137044019?text=Hola%20Onit%2C%20quiero%20conocer%20el%20estudio%20y%20recibir%20informaci%C3%B3n.">WhatsApp</a>
-                  <a class="mini-btn" target="_blank" rel="noopener" href="https://www.instagram.com/onitmanizales/">Instagram</a>
-                  <a class="mini-btn" href="mailto:comunidad@onitgbs.com?subject=Informaci%C3%B3n%20ONIT%20Fighting%20Studio&body=Hola%20ONIT%2C%20quiero%20recibir%20informaci%C3%B3n%20sobre%20clases%2C%20horarios%20y%20precios.">Correo</a>
+                <p class="label" data-i18n="studio.eyebrow">Primera clase</p>
+                <h3 data-i18n="studio.title">Conoce el estudio</h3>
+                <p data-i18n="studio.copy">
+                  Para personas que quieren empezar, volver a entrenar o llevar su rendimiento al siguiente nivel.
+                </p>
+
+                <div class="studio-contact-actions">
+                  <a class="studio-contact-btn primary" target="_blank" rel="noopener" href="https://wa.me/573137044019?text=Hola%20Onit%2C%20quiero%20conocer%20el%20estudio%20y%20recibir%20informaci%C3%B3n.">
+                    WhatsApp
+                  </a>
+
+                  <a class="studio-contact-btn" target="_blank" rel="noopener" href="https://www.instagram.com/onitmanizales/">
+                    Instagram
+                  </a>
+
+                  <a class="studio-contact-btn" href="mailto:comunidad@onitgbs.com?subject=Informaci%C3%B3n%20ONIT%20GBS&body=Hola%20ONIT%2C%20quiero%20recibir%20informaci%C3%B3n." data-i18n="buttons.emailShort">
+                    Correo
+                  </a>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
-
-      <section class="stats">
-        <div class="container stats-grid">
-          <div class="stat"><strong>BJJ</strong><span>Jiu Jitsu brasileño</span></div>
-          <div class="stat"><strong>MMA</strong><span>Entrenamiento integral</span></div>
-          <div class="stat"><strong>MT</strong><span>Muay Thai</span></div>
-          <div class="stat"><strong>KIDS</strong><span>Niños y adolescentes</span></div>
-        </div>
-      </section>
-
       <section id="programas" class="section">
         <div class="container">
           <div class="section-header">
-            <div><p class="section-label">Programas</p><h2 class="section-title">Escoge tu forma de entrenar.</h2></div>
-            <p class="section-copy">Una propuesta deportiva, sobria y directa, alineada con la identidad negra, blanca y oliva de ONIT.</p>
+            <div>
+              <p class="section-label" data-i18n="programs.eyebrow">Programas</p>
+              <h2 class="section-title" data-i18n="programs.title">Escoge tu forma de entrenar.</h2>
+            </div>
+            <p class="section-copy" data-i18n="programs.copy">
+              Entrena de acuerdo con tu etapa: fundamentos, striking, MMA o formación para niños y adolescentes, siempre con acompañamiento técnico.
+            </p>
           </div>
-          <div class="grid-4">
-            <article class="card program-card"><div class="card-icon">✦</div><div class="eyebrow">Gi · No Gi · Fundamentos</div><h3>JIU JITSU</h3><p>Entrenamiento técnico para desarrollar control, defensa, movilidad y confianza dentro del tatami.</p><a class="program-more" target="_blank" rel="noopener" href="https://wa.me/573137044019?text=Hola%20Onit%2C%20quiero%20informaci%C3%B3n%20sobre%20Jiu%20Jitsu.">Conocer más →</a></article>
-            <article class="card program-card"><div class="card-icon">✦</div><div class="eyebrow">Striking · Coordinación · Potencia</div><h3>MUAY THAI / KICKBOXING</h3><p>Clases de golpeo, defensa deportiva, acondicionamiento y precisión para todos los niveles.</p><a class="program-more" target="_blank" rel="noopener" href="https://wa.me/573137044019?text=Hola%20Onit%2C%20quiero%20informaci%C3%B3n%20sobre%20Muay%20Thai%20y%20Kickboxing.">Conocer más →</a></article>
-            <article class="card program-card"><div class="card-icon">✦</div><div class="eyebrow">Integración · Estrategia · Rendimiento</div><h3>MMA</h3><p>Una experiencia completa que combina habilidades de combate, preparación física y mentalidad competitiva.</p><a class="program-more" target="_blank" rel="noopener" href="https://wa.me/573137044019?text=Hola%20Onit%2C%20quiero%20informaci%C3%B3n%20sobre%20MMA.">Conocer más →</a></article>
-            <article class="card program-card"><div class="card-icon">✦</div><div class="eyebrow">Disciplina · Seguridad · Progreso</div><h3>NIÑOS Y ADOLESCENTES</h3><p>Clases para niños desde los 3 años, enfocadas en técnica, respeto, confianza y hábitos deportivos.</p><a class="program-more" target="_blank" rel="noopener" href="https://wa.me/573137044019?text=Hola%20Onit%2C%20quiero%20informaci%C3%B3n%20sobre%20clases%20para%20ni%C3%B1os%20y%20adolescentes.">Conocer más →</a></article>
+
+          <div class="program-grid">
+            <article class="program-card">
+              <div class="card-icon">✦</div>
+              <div class="program-eyebrow">Gi · No Gi · Fundamentos</div>
+              <h3>JIU JITSU</h3>
+              <p data-i18n="programs.bjj">Entrenamiento técnico para desarrollar control, defensa, movilidad y confianza dentro del tatami.</p>
+              <a class="program-more" target="_blank" rel="noopener" href="https://wa.me/573137044019?text=Hola%20Onit%2C%20quiero%20informaci%C3%B3n%20sobre%20Jiu%20Jitsu." data-i18n="buttons.learnMore">Conocer más →</a>
+            </article>
+
+            <article class="program-card">
+              <div class="card-icon">✦</div>
+              <div class="program-eyebrow">Striking · Coordinación · Potencia</div>
+              <h3>MUAY THAI / KICKBOXING</h3>
+              <p data-i18n="programs.striking">Clases de golpeo, defensa deportiva, acondicionamiento y precisión para todos los niveles.</p>
+              <a class="program-more" target="_blank" rel="noopener" href="https://wa.me/573137044019?text=Hola%20Onit%2C%20quiero%20informaci%C3%B3n%20sobre%20Muay%20Thai%20y%20Kickboxing." data-i18n="buttons.learnMore">Conocer más →</a>
+            </article>
+
+            <article class="program-card">
+              <div class="card-icon">✦</div>
+              <div class="program-eyebrow">Integración · Estrategia · Rendimiento</div>
+              <h3>MMA</h3>
+              <p data-i18n="programs.mma">Una experiencia completa que combina habilidades de combate, preparación física y mentalidad competitiva.</p>
+              <a class="program-more" target="_blank" rel="noopener" href="https://wa.me/573137044019?text=Hola%20Onit%2C%20quiero%20informaci%C3%B3n%20sobre%20MMA." data-i18n="buttons.learnMore">Conocer más →</a>
+            </article>
+
+            <article class="program-card">
+              <div class="card-icon">✦</div>
+              <div class="program-eyebrow" data-i18n="programs.kidsEyebrow">Disciplina · Seguridad · Progreso</div>
+              <h3 data-i18n="programs.kidsTitle">NIÑOS Y ADOLESCENTES</h3>
+              <p data-i18n="programs.kids">Clases para niños desde los 3 años, enfocadas en técnica, respeto, confianza y hábitos deportivos.</p>
+              <a class="program-more" target="_blank" rel="noopener" href="https://wa.me/573137044019?text=Hola%20Onit%2C%20quiero%20informaci%C3%B3n%20sobre%20clases%20para%20ni%C3%B1os%20y%20adolescentes." data-i18n="buttons.learnMore">Conocer más →</a>
+            </article>
           </div>
         </div>
       </section>
 
       <section id="metodo" class="section method">
         <div class="container method-grid">
-          <div><p class="section-label">Método Onit</p><h2 class="section-title">Técnica primero. Intensidad con control.</h2></div>
+          <div>
+            <p class="section-label" data-i18n="method.eyebrow">Método Onit</p>
+            <h2 class="section-title" data-i18n="method.title">Técnica primero. Intensidad con control.</h2>
+          </div>
+
           <div class="method-cards">
-            <article class="card method-card"><div class="mini-icon">✓</div><div><h3>Entrenamiento seguro</h3><p>Progresiones claras, acompañamiento técnico y respeto por el nivel de cada persona.</p></div></article>
-            <article class="card method-card"><div class="mini-icon">◎</div><div><h3>Comunidad</h3><p>Un ambiente de equipo para entrenar fuerte, aprender y sostener el hábito.</p></div></article>
-            <article class="card method-card"><div class="mini-icon">◷</div><div><h3>Consistencia</h3><p>Horarios y programas pensados para que puedas construir progreso semana a semana.</p></div></article>
+            <article class="method-card">
+              <div class="mini-icon">✓</div>
+              <div>
+                <h3 data-i18n="method.safeTitle">Entrenamiento seguro</h3>
+                <p data-i18n="method.safeCopy">Progresiones claras, acompañamiento técnico y respeto por el nivel de cada persona.</p>
+              </div>
+            </article>
+
+            <article class="method-card">
+              <div class="mini-icon">◎</div>
+              <div>
+                <h3 data-i18n="method.communityTitle">Comunidad</h3>
+                <p data-i18n="method.communityCopy">Un ambiente de equipo para entrenar fuerte, aprender y sostener el hábito.</p>
+              </div>
+            </article>
+
+            <article class="method-card">
+              <div class="mini-icon">◷</div>
+              <div>
+                <h3 data-i18n="method.consistencyTitle">Consistencia</h3>
+                <p data-i18n="method.consistencyCopy">Horarios y programas pensados para que puedas construir progreso semana a semana.</p>
+              </div>
+            </article>
           </div>
         </div>
       </section>
 
       <section class="section">
         <div class="container start-grid">
-          <div class="big-box">
-            <p class="section-label">Empieza</p><h2 class="section-title">Tu primera clase en 3 pasos.</h2>
+          <div class="start-box">
+            <p class="section-label" data-i18n="start.eyebrow">Empieza</p>
+            <h2 class="section-title" data-i18n="start.title">Tu primera clase en 3 pasos.</h2>
+
             <div class="step-list">
-              <div class="step"><div class="step-number">01</div><p>Escríbenos por WhatsApp y agenda tu clase de prueba.</p></div>
-              <div class="step"><div class="step-number">02</div><p>Llega con ropa cómoda, hidratación y actitud de aprender.</p></div>
-              <div class="step"><div class="step-number">03</div><p>Entrena con acompañamiento técnico desde el primer día.</p></div>
+              <div class="step">
+                <div class="step-number">01</div>
+                <p data-i18n="start.step1">Escríbenos por WhatsApp y agenda tu clase de prueba.</p>
+              </div>
+
+              <div class="step">
+                <div class="step-number">02</div>
+                <p data-i18n="start.step2">Llega con ropa cómoda, hidratación y actitud de aprender.</p>
+              </div>
+
+              <div class="step">
+                <div class="step-number">03</div>
+                <p data-i18n="start.step3">Entrena con acompañamiento técnico desde el primer día.</p>
+              </div>
             </div>
           </div>
-          <div class="big-box instagram-box">
-            <img src="assets/onit-logo-full-black.svg" alt="ONIT Fighting Studio" class="brand-logo logo-card logo-dark">
-            <img src="assets/onit-logo-full-olive.svg" alt="ONIT Fighting Studio" class="brand-logo logo-card logo-light">
-            <h3>Síguenos en Instagram</h3><p>Mira entrenamientos, eventos, seminarios y momentos de la comunidad ONIT.</p>
-            <a class="btn btn-dark" href="https://www.instagram.com/onitmanizales/" target="_blank" rel="noopener">@onitmanizales</a>
+
+          <div class="instagram-box">
+            <img
+              src="assets/onit-logo-full-black.svg"
+              data-dark-src="assets/onit-logo-full-black.svg"
+              data-light-src="assets/onit-logo-full-olive.svg"
+              alt="ONIT Fighting Studio"
+              class="brand-logo brand-logo-card theme-logo"
+            >
+
+            <h3 data-i18n="instagram.title">Síguenos en Instagram</h3>
+            <p data-i18n="instagram.copy">Mira entrenamientos, eventos, seminarios y momentos de la comunidad ONIT.</p>
+
+            <a class="btn btn-dark" href="https://www.instagram.com/onitmanizales/" target="_blank" rel="noopener">
+              @onitmanizales
+            </a>
           </div>
         </div>
       </section>
 
       <section id="horarios" class="section schedule-section">
         <div class="container">
-          <div class="section-header"><div><p class="section-label">Horarios</p><h2 class="section-title">Horarios 2026</h2></div><a class="btn btn-outline" target="_blank" rel="noopener" href="https://wa.me/573137044019?text=Hola%20Onit%2C%20quiero%20confirmar%20cupo%20para%20entrenar.">Confirmar cupo →</a></div>
-          <div class="card schedule-card">
-            <div class="schedule-title"><h3>Jiu Jitsu</h3><div>Gi y No Gi</div></div>
-            <div class="table-wrap"><table><thead><tr><th>Hora</th><th>Lunes</th><th>Martes</th><th>Miércoles</th><th>Jueves</th><th>Viernes</th><th>Sábado</th></tr></thead><tbody>
-              <tr><td class="time-cell">6:00 AM</td><td><div class="class-cell class-dark">No Gi</div></td><td><div class="class-cell class-light">Gi</div></td><td><div class="class-cell class-light">Gi</div></td><td><div class="class-cell class-dark">No Gi</div></td><td><div class="class-cell class-light">Gi</div></td><td><div class="class-empty"></div></td></tr>
-              <tr><td class="time-cell">11:00 AM</td><td><div class="class-empty"></div></td><td><div class="class-empty"></div></td><td><div class="class-empty"></div></td><td><div class="class-empty"></div></td><td><div class="class-empty"></div></td><td><div class="class-cell class-dark">Open Mat</div></td></tr>
-              <tr><td class="time-cell">6:00 PM</td><td><div class="class-cell class-dark">Fundamentos</div></td><td><div class="class-cell class-dark">Fundamentos</div></td><td><div class="class-cell class-dark">Fundamentos</div></td><td><div class="class-cell class-dark">Fundamentos</div></td><td><div class="class-cell class-dark">Fundamentos</div></td><td><div class="class-empty"></div></td></tr>
-              <tr><td class="time-cell">7:00 PM</td><td><div class="class-cell class-light">Gi</div></td><td><div class="class-cell class-dark">No Gi</div></td><td><div class="class-cell class-dark">No Gi</div></td><td><div class="class-cell class-light">Gi</div></td><td><div class="class-cell class-dark">No Gi</div></td><td><div class="class-empty"></div></td></tr>
-            </tbody></table></div>
+          <div class="section-header">
+            <div>
+              <p class="section-label" data-i18n="schedule.eyebrow">Horarios</p>
+              <h2 class="section-title" data-i18n="schedule.title">Horarios 2026</h2>
+            </div>
+
+            <a class="btn btn-outline" target="_blank" rel="noopener" href="https://wa.me/573137044019?text=Hola%20Onit%2C%20quiero%20confirmar%20cupo%20para%20entrenar." data-i18n="buttons.confirmSpot">
+              Confirmar cupo →
+            </a>
           </div>
-          <div class="card schedule-card"><div class="schedule-title"><h3>Muay Thai - Kickboxing</h3></div><div class="table-wrap"><table><thead><tr><th>Hora</th><th>Lunes</th><th>Martes</th><th>Miércoles</th><th>Jueves</th><th>Viernes</th><th>Sábado</th></tr></thead><tbody><tr><td class="time-cell">6:00 PM</td><td><div class="class-cell class-light">Kickboxing</div></td><td><div class="class-cell class-light">Muay Thai</div></td><td><div class="class-cell class-light">Kickboxing</div></td><td><div class="class-cell class-light">Muay Thai</div></td><td><div class="class-cell class-light">Kickboxing</div></td><td><div class="class-empty"></div></td></tr></tbody></table></div></div>
-          <div class="card schedule-card"><div class="schedule-title"><h3>Niños y adolescentes</h3></div><div class="table-wrap"><table><thead><tr><th>Hora</th><th>Lunes</th><th>Martes</th><th>Miércoles</th><th>Jueves</th><th>Viernes</th><th>Sábado</th></tr></thead><tbody><tr><td class="time-cell">4:00 PM</td><td><div class="class-cell class-light">Niños Gi<br>3-8 años</div></td><td><div class="class-empty"></div></td><td><div class="class-cell class-light">Niños Gi<br>3-8 años</div></td><td><div class="class-empty"></div></td><td><div class="class-cell class-light">Niños Gi<br>3-8 años</div></td><td><div class="class-empty"></div></td></tr><tr><td class="time-cell">5:00 PM</td><td><div class="class-cell class-light">Niños Gi<br>+9 años</div></td><td><div class="class-empty"></div></td><td><div class="class-cell class-light">Niños Gi<br>+9 años</div></td><td><div class="class-empty"></div></td><td><div class="class-cell class-light">Niños Gi<br>+9 años</div></td><td><div class="class-empty"></div></td></tr></tbody></table></div></div>
-          <div class="notes"><div class="notes-grid"><p><strong>GI/KIMONO:</strong> clase con uniforme de jiu jitsu.</p><p><strong>NO GI:</strong> clase sin kimono; se puede asistir con pantaloneta, camiseta o rashguard.</p><p><strong>OBLIGATORIO:</strong> uso de rashguard o camiseta debajo del kimono.</p><p><strong>OPEN MAT:</strong> revisar la historia de Instagram el viernes para confirmar si se programó.</p></div></div>
+
+          <div class="schedule-card">
+            <div class="schedule-title">
+              <h3>Jiu Jitsu</h3>
+              <div>Gi y No Gi</div>
+            </div>
+
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th data-i18n="schedule.time">Hora</th>
+                    <th data-i18n="days.mon">Lunes</th>
+                    <th data-i18n="days.tue">Martes</th>
+                    <th data-i18n="days.wed">Miércoles</th>
+                    <th data-i18n="days.thu">Jueves</th>
+                    <th data-i18n="days.fri">Viernes</th>
+                    <th data-i18n="days.sat">Sábado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="time-cell">6:00 AM</td>
+                    <td><div class="class-cell class-dark">No Gi</div></td>
+                    <td><div class="class-cell class-light">Gi</div></td>
+                    <td><div class="class-cell class-light">Gi</div></td>
+                    <td><div class="class-cell class-dark">No Gi</div></td>
+                    <td><div class="class-cell class-light">Gi</div></td>
+                    <td><div class="class-empty"></div></td>
+                  </tr>
+
+                  <tr>
+                    <td class="time-cell">11:00 AM</td>
+                    <td><div class="class-empty"></div></td>
+                    <td><div class="class-empty"></div></td>
+                    <td><div class="class-empty"></div></td>
+                    <td><div class="class-empty"></div></td>
+                    <td><div class="class-empty"></div></td>
+                    <td><div class="class-cell class-dark">Open Mat</div></td>
+                  </tr>
+
+                  <tr>
+                    <td class="time-cell">6:00 PM</td>
+                    <td><div class="class-cell class-dark" data-i18n="schedule.fundamentals">Fundamentos</div></td>
+                    <td><div class="class-cell class-dark" data-i18n="schedule.fundamentals">Fundamentos</div></td>
+                    <td><div class="class-cell class-dark" data-i18n="schedule.fundamentals">Fundamentos</div></td>
+                    <td><div class="class-cell class-dark" data-i18n="schedule.fundamentals">Fundamentos</div></td>
+                    <td><div class="class-cell class-dark" data-i18n="schedule.fundamentals">Fundamentos</div></td>
+                    <td><div class="class-empty"></div></td>
+                  </tr>
+
+                  <tr>
+                    <td class="time-cell">7:00 PM</td>
+                    <td><div class="class-cell class-light">Gi</div></td>
+                    <td><div class="class-cell class-dark">No Gi</div></td>
+                    <td><div class="class-cell class-dark">No Gi</div></td>
+                    <td><div class="class-cell class-light">Gi</div></td>
+                    <td><div class="class-cell class-dark">No Gi</div></td>
+                    <td><div class="class-empty"></div></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="schedule-card">
+            <div class="schedule-title">
+              <h3>Muay Thai - Kickboxing</h3>
+            </div>
+
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th data-i18n="schedule.time">Hora</th>
+                    <th data-i18n="days.mon">Lunes</th>
+                    <th data-i18n="days.tue">Martes</th>
+                    <th data-i18n="days.wed">Miércoles</th>
+                    <th data-i18n="days.thu">Jueves</th>
+                    <th data-i18n="days.fri">Viernes</th>
+                    <th data-i18n="days.sat">Sábado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="time-cell">6:00 PM</td>
+                    <td><div class="class-cell class-light">Kickboxing</div></td>
+                    <td><div class="class-cell class-light">Muay Thai</div></td>
+                    <td><div class="class-cell class-light">Kickboxing</div></td>
+                    <td><div class="class-cell class-light">Muay Thai</div></td>
+                    <td><div class="class-cell class-light">Kickboxing</div></td>
+                    <td><div class="class-empty"></div></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="schedule-card">
+            <div class="schedule-title">
+              <h3 data-i18n="schedule.kidsTitle">Niños y adolescentes</h3>
+            </div>
+
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th data-i18n="schedule.time">Hora</th>
+                    <th data-i18n="days.mon">Lunes</th>
+                    <th data-i18n="days.tue">Martes</th>
+                    <th data-i18n="days.wed">Miércoles</th>
+                    <th data-i18n="days.thu">Jueves</th>
+                    <th data-i18n="days.fri">Viernes</th>
+                    <th data-i18n="days.sat">Sábado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="time-cell">4:00 PM</td>
+                    <td><div class="class-cell class-light" data-i18n="schedule.kidsSmall">Niños Gi<br>3-8 años</div></td>
+                    <td><div class="class-empty"></div></td>
+                    <td><div class="class-cell class-light" data-i18n="schedule.kidsSmall">Niños Gi<br>3-8 años</div></td>
+                    <td><div class="class-empty"></div></td>
+                    <td><div class="class-cell class-light" data-i18n="schedule.kidsSmall">Niños Gi<br>3-8 años</div></td>
+                    <td><div class="class-empty"></div></td>
+                  </tr>
+
+                  <tr>
+                    <td class="time-cell">5:00 PM</td>
+                    <td><div class="class-cell class-light" data-i18n="schedule.kidsBig">Niños Gi<br>+9 años</div></td>
+                    <td><div class="class-empty"></div></td>
+                    <td><div class="class-cell class-light" data-i18n="schedule.kidsBig">Niños Gi<br>+9 años</div></td>
+                    <td><div class="class-empty"></div></td>
+                    <td><div class="class-cell class-light" data-i18n="schedule.kidsBig">Niños Gi<br>+9 años</div></td>
+                    <td><div class="class-empty"></div></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="notes">
+            <div class="notes-grid">
+              <p data-i18n="notes.gi"><strong>GI/KIMONO:</strong> clase con uniforme de jiu jitsu.</p>
+              <p data-i18n="notes.nogi"><strong>NO GI:</strong> clase sin kimono; se puede asistir con pantaloneta, camiseta o rashguard.</p>
+              <p data-i18n="notes.required"><strong>OBLIGATORIO:</strong> uso de rashguard o camiseta debajo del kimono.</p>
+              <p data-i18n="notes.openmat"><strong>OPEN MAT:</strong> revisar la historia de Instagram el viernes para confirmar si se programó.</p>
+            </div>
+          </div>
         </div>
       </section>
 
       <section id="precios" class="section">
         <div class="container">
-          <div class="section-header"><div><p class="section-label">Precios</p><h2 class="section-title">Planes 2026</h2></div><p class="section-copy">Jiu Jitsu, MMA, Muay Thai y Kickboxing con opciones mensuales y planes por contrato.</p></div>
-          <div class="pricing-grid">
-            <article class="pricing-card featured"><div class="pricing-title"><h3>Mensual</h3></div><div class="price-row"><span class="price-label">1 clase</span><span class="price-value">$45.000</span></div><div class="price-row"><span class="price-label">4 clases <span class="badge">Nuevo</span></span><span class="price-value">$120.000</span></div><div class="price-row"><span class="price-label">8 clases</span><span class="price-value">$200.000</span></div><div class="price-row"><span class="price-label">12 clases</span><span class="price-value">$240.000</span></div><div class="price-row"><span class="price-label">Full</span><span class="price-value">$270.000</span></div></article>
-            <article class="pricing-card"><div class="pricing-title"><h3>Contract</h3></div><div class="price-row"><span class="price-label">Trimestre</span><span class="price-value">$680.000</span></div><div class="price-row"><span class="price-label">Semestre</span><span class="price-value">$1.200.000</span></div><div class="price-row"><span class="price-label">Anualidad</span><span class="price-value">$2.100.000</span></div></article>
+          <div class="section-header">
+            <div>
+              <p class="section-label" data-i18n="pricing.eyebrow">Precios</p>
+              <h2 class="section-title" data-i18n="pricing.title">Planes 2026</h2>
+            </div>
+            <p class="section-copy" data-i18n="pricing.copy">
+              Jiu Jitsu, MMA, Muay Thai y Kickboxing con opciones mensuales y planes por contrato.
+            </p>
           </div>
-          <div class="contact-strip"><div><small>Información y reservas</small><strong>+57 313 704 4019</strong></div><a class="btn btn-white" target="_blank" rel="noopener" href="https://wa.me/573137044019?text=Hola%20Onit%2C%20quiero%20recibir%20informaci%C3%B3n%20sobre%20clases%2C%20horarios%20y%20precios.">Escribir por WhatsApp →</a></div>
+
+          <div class="pricing-grid">
+            <article class="pricing-card featured">
+              <div class="pricing-title">
+                <h3 data-i18n="pricing.monthly">Mensual</h3>
+              </div>
+
+              <div class="price-row">
+                <span class="price-label" data-i18n="pricing.oneClass">1 clase</span>
+                <span class="price-value">$45.000</span>
+              </div>
+
+              <div class="price-row">
+                <span class="price-label">4 <span data-i18n="pricing.classes">clases</span> <span class="badge" data-i18n="pricing.new">Nuevo</span></span>
+                <span class="price-value">$120.000</span>
+              </div>
+
+              <div class="price-row">
+                <span class="price-label">8 <span data-i18n="pricing.classes">clases</span></span>
+                <span class="price-value">$200.000</span>
+              </div>
+
+              <div class="price-row">
+                <span class="price-label">12 <span data-i18n="pricing.classes">clases</span></span>
+                <span class="price-value">$240.000</span>
+              </div>
+
+              <div class="price-row">
+                <span class="price-label">Full</span>
+                <span class="price-value">$270.000</span>
+              </div>
+            </article>
+
+            <article class="pricing-card">
+              <div class="pricing-title">
+                <h3>Contract</h3>
+              </div>
+
+              <div class="price-row">
+                <span class="price-label" data-i18n="pricing.quarter">Trimestre</span>
+                <span class="price-value">$680.000</span>
+              </div>
+
+              <div class="price-row">
+                <span class="price-label" data-i18n="pricing.semester">Semestre</span>
+                <span class="price-value">$1.200.000</span>
+              </div>
+
+              <div class="price-row">
+                <span class="price-label" data-i18n="pricing.year">Anualidad</span>
+                <span class="price-value">$2.100.000</span>
+              </div>
+            </article>
+          </div>
+
+          <div class="contact-strip">
+            <div>
+              <small data-i18n="contact.info">Información y reservas</small>
+              <strong>+57 313 704 4019</strong>
+            </div>
+
+            <a class="btn btn-white" target="_blank" rel="noopener" href="https://wa.me/573137044019?text=Hola%20Onit%2C%20quiero%20recibir%20informaci%C3%B3n%20sobre%20clases%2C%20horarios%20y%20precios." data-i18n="buttons.whatsapp">
+              Escribir por WhatsApp →
+            </a>
+          </div>
         </div>
       </section>
 
       <section class="section">
         <div class="container">
-          <div class="section-header"><div><p class="section-label">Galería</p><h2 class="section-title">Vida dentro del estudio.</h2></div></div>
+          <div class="section-header">
+            <div>
+              <p class="section-label" data-i18n="gallery.eyebrow">Galería</p>
+              <h2 class="section-title" data-i18n="gallery.title">Vida dentro del estudio.</h2>
+            </div>
+          </div>
+
           <div class="gallery-grid">
-            <article class="gallery-card" style="background-image:url('assets/019A2040.jpg');"><div class="gallery-content"><small>Jiu Jitsu · Técnica</small><h3>Técnica</h3></div></article>
-            <article class="gallery-card tall" style="background-image:url('assets/019A2021.jpg');"><div class="gallery-content"><small>Entrenamiento · Control</small><h3>Sparring controlado</h3></div></article>
-            <article class="gallery-card" style="background-image:url('assets/IMG_24692.jpg');"><div class="gallery-content"><small>Equipo · Comunidad</small><h3>Comunidad</h3></div></article>
+            <article class="gallery-card" style="background-image: url('assets/019A2040.jpg');">
+              <div class="gallery-content">
+                <small data-i18n="gallery.techSmall">Jiu Jitsu · Técnica</small>
+                <h3 data-i18n="gallery.tech">Técnica</h3>
+              </div>
+            </article>
+
+            <article class="gallery-card tall" style="background-image: url('assets/019A2021.jpg');">
+              <div class="gallery-content">
+                <small data-i18n="gallery.sparringSmall">Entrenamiento · Control</small>
+                <h3 data-i18n="gallery.sparring">Sparring controlado</h3>
+              </div>
+            </article>
+
+            <article class="gallery-card" style="background-image: url('assets/IMG_24692.jpg');">
+              <div class="gallery-content">
+                <small data-i18n="gallery.communitySmall">Equipo · Comunidad</small>
+                <h3 data-i18n="gallery.community">Comunidad</h3>
+              </div>
+            </article>
           </div>
         </div>
       </section>
 
       <section id="ubicacion" class="section location">
         <div class="container location-grid">
-          <div><p class="section-label">Ubicación</p><h2 class="section-title">Nos vemos en Milán.</h2><p>Carrera 23 #75A - 55, Barrio Milán, al frente del Colegio Santa Inés, Manizales.</p><div class="actions"><a class="btn btn-dark" target="_blank" rel="noopener" href="https://wa.me/573137044019?text=Hola%20Onit%2C%20quiero%20agendar%20una%20visita.">Agendar visita</a><a class="btn btn-dark-outline" target="_blank" rel="noopener" href="https://maps.google.com/?q=Carrera%2023%20%2375A%20-%2055%2C%20Barrio%20Mil%C3%A1n%2C%20Manizales%2C%20Colombia">Abrir mapa</a></div></div>
-          <div class="location-card"><div class="location-card-inner"><div class="location-top"><div><img src="assets/onit-icon-black-512.png" alt="Ícono ONIT" class="brand-icon logo-dark"><img src="assets/onit-icon-olive-512.png" alt="Ícono ONIT" class="brand-icon logo-light"></div><div><img src="assets/onit-logo-full-black.svg" alt="ONIT Fighting Studio" class="brand-logo logo-card logo-dark"><img src="assets/onit-logo-full-olive.svg" alt="ONIT Fighting Studio" class="brand-logo logo-card logo-light"></div></div><div><p class="section-label">Contacto</p><h3>+57 313 704 4019</h3><p>Carrera 23 #75A - 55 · Barrio Milán · Frente al Colegio Santa Inés.</p></div></div></div>
+          <div>
+            <p class="section-label" data-i18n="location.eyebrow">Ubicación</p>
+            <h2 class="section-title" data-i18n="location.title">Nos vemos en Milán.</h2>
+
+            <p data-i18n="location.copy">
+              Carrera 23 #75A - 55, Barrio Milán, al frente del Colegio Santa Inés, Manizales.
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn btn-dark" target="_blank" rel="noopener" href="https://wa.me/573137044019?text=Hola%20Onit%2C%20quiero%20agendar%20una%20visita." data-i18n="buttons.visit">
+                Agendar visita
+              </a>
+
+              <a class="btn btn-dark-outline" target="_blank" rel="noopener" href="https://maps.google.com/?q=Carrera%2023%20%2375A%20-%2055%2C%20Barrio%20Mil%C3%A1n%2C%20Manizales%2C%20Colombia" data-i18n="buttons.map">
+                Abrir mapa
+              </a>
+            </div>
+          </div>
+
+          <div class="location-card">
+            <div class="location-card-inner">
+              <div class="location-top">
+                <div>
+                  <img
+                    src="assets/onit-icon-black-512.png"
+                    data-dark-src="assets/onit-icon-black-512.png"
+                    data-light-src="assets/onit-icon-olive-512.png"
+                    alt="Ícono ONIT"
+                    class="brand-icon theme-logo"
+                  >
+                </div>
+
+                <div>
+                  <img
+                    src="assets/onit-logo-full-black.svg"
+                    data-dark-src="assets/onit-logo-full-black.svg"
+                    data-light-src="assets/onit-logo-full-olive.svg"
+                    alt="ONIT Fighting Studio"
+                    class="brand-logo brand-logo-card theme-logo"
+                  >
+                </div>
+              </div>
+
+              <div>
+                <p class="section-label" data-i18n="contact.title">Contacto</p>
+                <h3>+57 313 704 4019</h3>
+                <p data-i18n="contact.address">Carrera 23 #75A - 55 · Barrio Milán · Frente al Colegio Santa Inés.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
+
+
+<section id="servicios" class="section services-section">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <p class="section-label">ONIT GBS</p>
+              <h2 class="section-title" data-i18n="services.title">Sistematización para pequeñas empresas.</h2>
+            </div>
+            <p class="section-copy" data-i18n="services.copy">
+              Además del estudio, en ONIT GBS ayudamos a pequeñas empresas a organizar pagos, ventas, inventario, clientes y reportes usando herramientas simples y automatizadas.
+            </p>
+          </div>
+
+          <div class="services-grid">
+            <article class="service-card">
+              <div class="card-icon">₿</div>
+              <div class="service-eyebrow" data-i18n="services.finEyebrow">Control financiero</div>
+              <h3 data-i18n="services.finTitle">Sistema financiero</h3>
+              <p data-i18n="services.finCopy">Paneles para controlar ingresos, egresos, pagos pendientes, cartera, ahorro y reportes mensuales.</p>
+            </article>
+
+            <article class="service-card">
+              <div class="card-icon">▦</div>
+              <div class="service-eyebrow" data-i18n="services.salesEyebrow">Operación diaria</div>
+              <h3 data-i18n="services.salesTitle">Inventario y ventas</h3>
+              <p data-i18n="services.salesCopy">Registro de productos, ventas, clientes, comprobantes y correos automáticos para negocios pequeños.</p>
+            </article>
+
+            <article class="service-card">
+              <div class="card-icon">✉</div>
+              <div class="service-eyebrow" data-i18n="services.msgEyebrow">Comunicación</div>
+              <h3 data-i18n="services.msgTitle">Mensajes automáticos</h3>
+              <p data-i18n="services.msgCopy">Plantillas para confirmaciones, vencimientos, pagos y seguimiento por WhatsApp o correo electrónico.</p>
+            </article>
+
+            <article class="service-card">
+              <div class="card-icon">◎</div>
+              <div class="service-eyebrow" data-i18n="services.toolsEyebrow">Google Workspace</div>
+              <h3 data-i18n="services.toolsTitle">Apps a la medida</h3>
+              <p data-i18n="services.toolsCopy">Soluciones con Google Sheets, Apps Script y páginas web ligeras para digitalizar procesos.</p>
+            </article>
+          </div>
+
+          <div class="services-cta">
+            <div>
+              <small data-i18n="services.ctaEyebrow">Para pequeñas empresas</small>
+              <strong data-i18n="services.ctaTitle">Llevemos tu operación a un sistema claro.</strong>
+            </div>
+
+            <div class="hero-actions" style="margin-top:0;">
+              <a class="btn btn-white" target="_blank" rel="noopener" href="https://wa.me/573137044019?text=Hola%20ONIT%20GBS%2C%20quiero%20informaci%C3%B3n%20sobre%20automatizaciones%20para%20mi%20negocio." data-i18n="buttons.automationWhatsapp">
+                Hablar por WhatsApp →
+              </a>
+              <a class="btn btn-outline" href="mailto:comunidad@onitgbs.com?subject=Automatizaci%C3%B3n%20para%20mi%20negocio&body=Hola%20ONIT%20GBS%2C%20quiero%20informaci%C3%B3n%20sobre%20automatizaciones." data-i18n="buttons.email">
+                Escribir correo
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
     </main>
 
     <footer class="footer">
       <div class="container footer-inner">
-        <div><img src="assets/onit-logo-full-white.svg" alt="ONIT Fighting Studio" class="brand-logo logo-footer logo-dark"><img src="assets/onit-logo-full-olive.svg" alt="ONIT Fighting Studio" class="brand-logo logo-footer logo-light"><p class="footer-sub">MMA · Jiu Jitsu · Muay Thai · Kickboxing · Manizales</p></div>
-        <div class="footer-links"><button data-scroll="programas">Programas</button><button data-scroll="horarios">Horarios</button><button data-scroll="precios">Precios</button><a href="https://www.instagram.com/onitmanizales/" target="_blank" rel="noopener">Instagram</a><a href="https://wa.me/573137044019?text=Hola%20Onit%2C%20quiero%20recibir%20informaci%C3%B3n%20sobre%20clases%2C%20horarios%20y%20precios." target="_blank" rel="noopener">WhatsApp</a></div>
+        <div>
+          <img
+            src="assets/onit-logo-full-white.svg"
+            data-dark-src="assets/onit-logo-full-white.svg"
+            data-light-src="assets/onit-logo-full-olive.svg"
+            alt="ONIT Fighting Studio"
+            class="brand-logo brand-logo-footer theme-logo"
+          >
+
+          <p class="footer-sub" data-i18n="footer.copy">MMA · Jiu Jitsu · Muay Thai · Kickboxing · Automatización · Manizales</p>
+        </div>
+
+        <div class="footer-links">
+          <button data-scroll="programas" data-i18n="nav.programs">Programas</button>
+          <button data-scroll="horarios" data-i18n="nav.schedule">Horarios</button>
+          <button data-scroll="precios" data-i18n="nav.pricing">Precios</button>
+          <button data-scroll="servicios" data-i18n="nav.services">Servicios</button>
+          <a href="https://www.instagram.com/onitmanizales/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://wa.me/573137044019?text=Hola%20Onit%2C%20quiero%20recibir%20informaci%C3%B3n%20sobre%20clases%2C%20horarios%20y%20precios." target="_blank" rel="noopener">WhatsApp</a>
+        </div>
       </div>
     </footer>
+
   </div>
 
   <script>
+    const translations = {
+      es: {
+        "nav.programs": "Programas",
+        "nav.schedule": "Horarios",
+        "nav.pricing": "Precios",
+        "nav.services": "Servicios",
+        "nav.systems": "Sistematización",
+        "nav.location": "Ubicación",
+        "switcher.current": "<strong>ONIT Fighting Studio</strong> · Estás viendo la academia de artes marciales",
+        "switcher.systems": "Ver sistematización para empresas →",
+        "module.studio": "ONIT Fighting Studio",
+        "module.studioSub": "Academia de artes marciales",
+        "module.systems": "ONIT Business Systems",
+        "module.systemsSub": "Sistematización para empresas",
+
+        "buttons.trial": "Clase de prueba",
+        "buttons.bookTrial": "Agendar clase de prueba →",
+        "buttons.viewSchedule": "Ver horarios 2026",
+        "buttons.learnMore": "Conocer más →",
+        "buttons.emailShort": "Correo",
+        "buttons.changeLanguage": "Cambiar idioma",
+        "buttons.changeTheme": "Cambiar modo",
+        "buttons.confirmSpot": "Confirmar cupo →",
+        "buttons.whatsapp": "Escribir por WhatsApp →",
+        "buttons.visit": "Agendar visita",
+        "buttons.map": "Abrir mapa",
+        "buttons.automationWhatsapp": "Hablar por WhatsApp →",
+        "buttons.email": "Escribir correo",
+
+        "hero.pill": "⌖ Manizales · Barrio Milán",
+        "hero.title": "Entrena con estructura. Pelea con intención.",
+        "hero.copy": "ONIT Fighting Studio es un espacio para entrenar Jiu Jitsu, MMA, Muay Thai y Kickboxing con técnica, comunidad y mentalidad de progreso.",
+
+        "studio.eyebrow": "Primera clase",
+        "studio.title": "Conoce el estudio",
+        "studio.copy": "Para personas que quieren empezar, volver a entrenar o llevar su rendimiento al siguiente nivel.",
+
+        "stats.bjj": "Jiu Jitsu brasileño",
+        "stats.mma": "Entrenamiento integral",
+        "stats.kids": "Niños y adolescentes",
+
+        "programs.eyebrow": "Programas",
+        "programs.title": "Escoge tu forma de entrenar.",
+        "programs.copy": "Entrena de acuerdo con tu etapa: fundamentos, striking, MMA o formación para niños y adolescentes, siempre con acompañamiento técnico.",
+        "programs.bjj": "Entrenamiento técnico para desarrollar control, defensa, movilidad y confianza dentro del tatami.",
+        "programs.striking": "Clases de golpeo, defensa deportiva, acondicionamiento y precisión para todos los niveles.",
+        "programs.mma": "Una experiencia completa que combina habilidades de combate, preparación física y mentalidad competitiva.",
+        "programs.kidsEyebrow": "Disciplina · Seguridad · Progreso",
+        "programs.kidsTitle": "NIÑOS Y ADOLESCENTES",
+        "programs.kids": "Clases para niños desde los 3 años, enfocadas en técnica, respeto, confianza y hábitos deportivos.",
+
+        "method.eyebrow": "Método Onit",
+        "method.title": "Técnica primero. Intensidad con control.",
+        "method.safeTitle": "Entrenamiento seguro",
+        "method.safeCopy": "Progresiones claras, acompañamiento técnico y respeto por el nivel de cada persona.",
+        "method.communityTitle": "Comunidad",
+        "method.communityCopy": "Un ambiente de equipo para entrenar fuerte, aprender y sostener el hábito.",
+        "method.consistencyTitle": "Consistencia",
+        "method.consistencyCopy": "Horarios y programas pensados para que puedas construir progreso semana a semana.",
+
+        "services.title": "Sistematización para pequeñas empresas.",
+        "services.copy": "Además del estudio, en ONIT GBS ayudamos a pequeñas empresas a organizar pagos, ventas, inventario, clientes y reportes usando herramientas simples y automatizadas.",
+        "services.finEyebrow": "Control financiero",
+        "services.finTitle": "Sistema financiero",
+        "services.finCopy": "Paneles para controlar ingresos, egresos, pagos pendientes, cartera, ahorro y reportes mensuales.",
+        "services.salesEyebrow": "Operación diaria",
+        "services.salesTitle": "Inventario y ventas",
+        "services.salesCopy": "Registro de productos, ventas, clientes, comprobantes y correos automáticos para negocios pequeños.",
+        "services.msgEyebrow": "Comunicación",
+        "services.msgTitle": "Mensajes automáticos",
+        "services.msgCopy": "Plantillas para confirmaciones, vencimientos, pagos y seguimiento por WhatsApp o correo electrónico.",
+        "services.toolsEyebrow": "Google Workspace",
+        "services.toolsTitle": "Apps a la medida",
+        "services.toolsCopy": "Soluciones con Google Sheets, Apps Script y páginas web ligeras para digitalizar procesos.",
+        "services.ctaEyebrow": "Para pequeñas empresas",
+        "services.ctaTitle": "Llevemos tu operación a un sistema claro.",
+
+        "start.eyebrow": "Empieza",
+        "start.title": "Tu primera clase en 3 pasos.",
+        "start.step1": "Escríbenos por WhatsApp y agenda tu clase de prueba.",
+        "start.step2": "Llega con ropa cómoda, hidratación y actitud de aprender.",
+        "start.step3": "Entrena con acompañamiento técnico desde el primer día.",
+
+        "instagram.title": "Síguenos en Instagram",
+        "instagram.copy": "Mira entrenamientos, eventos, seminarios y momentos de la comunidad ONIT.",
+
+        "schedule.eyebrow": "Horarios",
+        "schedule.title": "Horarios 2026",
+        "schedule.time": "Hora",
+        "schedule.fundamentals": "Fundamentos",
+        "schedule.kidsTitle": "Niños y adolescentes",
+        "schedule.kidsSmall": "Niños Gi<br>3-8 años",
+        "schedule.kidsBig": "Niños Gi<br>+9 años",
+
+        "days.mon": "Lunes",
+        "days.tue": "Martes",
+        "days.wed": "Miércoles",
+        "days.thu": "Jueves",
+        "days.fri": "Viernes",
+        "days.sat": "Sábado",
+
+        "notes.gi": "<strong>GI/KIMONO:</strong> clase con uniforme de jiu jitsu.",
+        "notes.nogi": "<strong>NO GI:</strong> clase sin kimono; se puede asistir con pantaloneta, camiseta o rashguard.",
+        "notes.required": "<strong>OBLIGATORIO:</strong> uso de rashguard o camiseta debajo del kimono.",
+        "notes.openmat": "<strong>OPEN MAT:</strong> revisar la historia de Instagram el viernes para confirmar si se programó.",
+
+        "pricing.eyebrow": "Precios",
+        "pricing.title": "Planes 2026",
+        "pricing.copy": "Jiu Jitsu, MMA, Muay Thai y Kickboxing con opciones mensuales y planes por contrato.",
+        "pricing.monthly": "Mensual",
+        "pricing.oneClass": "1 clase",
+        "pricing.classes": "clases",
+        "pricing.new": "Nuevo",
+        "pricing.quarter": "Trimestre",
+        "pricing.semester": "Semestre",
+        "pricing.year": "Anualidad",
+
+        "contact.info": "Información y reservas",
+        "contact.title": "Contacto",
+        "contact.address": "Carrera 23 #75A - 55 · Barrio Milán · Frente al Colegio Santa Inés.",
+
+        "gallery.eyebrow": "Galería",
+        "gallery.title": "Vida dentro del estudio.",
+        "gallery.techSmall": "Jiu Jitsu · Técnica",
+        "gallery.tech": "Técnica",
+        "gallery.sparringSmall": "Entrenamiento · Control",
+        "gallery.sparring": "Sparring controlado",
+        "gallery.communitySmall": "Equipo · Comunidad",
+        "gallery.community": "Comunidad",
+
+        "location.eyebrow": "Ubicación",
+        "location.title": "Nos vemos en Milán.",
+        "location.copy": "Carrera 23 #75A - 55, Barrio Milán, al frente del Colegio Santa Inés, Manizales.",
+
+        "footer.copy": "MMA · Jiu Jitsu · Muay Thai · Kickboxing · Automatización · Manizales"
+      },
+
+      en: {
+        "nav.programs": "Programs",
+        "nav.schedule": "Schedule",
+        "nav.pricing": "Pricing",
+        "nav.services": "Services",
+        "nav.systems": "Business systems",
+        "nav.location": "Location",
+        "switcher.current": "<strong>ONIT Fighting Studio</strong> · You are viewing the martial arts academy",
+        "switcher.systems": "View business systems →",
+        "module.studio": "ONIT Fighting Studio",
+        "module.studioSub": "Martial arts academy",
+        "module.systems": "ONIT Business Systems",
+        "module.systemsSub": "Business automation",
+
+        "buttons.trial": "Trial class",
+        "buttons.bookTrial": "Book trial class →",
+        "buttons.viewSchedule": "View 2026 schedule",
+        "buttons.learnMore": "Learn more →",
+        "buttons.emailShort": "Email",
+        "buttons.changeLanguage": "Change language",
+        "buttons.changeTheme": "Change mode",
+        "buttons.confirmSpot": "Confirm spot →",
+        "buttons.whatsapp": "Message on WhatsApp →",
+        "buttons.visit": "Schedule visit",
+        "buttons.map": "Open map",
+        "buttons.automationWhatsapp": "Talk on WhatsApp →",
+        "buttons.email": "Send email",
+
+        "hero.pill": "⌖ Manizales · Milan neighborhood",
+        "hero.title": "Train with structure. Fight with intention.",
+        "hero.copy": "ONIT Fighting Studio is a space to train Jiu Jitsu, MMA, Muay Thai and Kickboxing with technique, community and a progress mindset.",
+
+        "studio.eyebrow": "First class",
+        "studio.title": "Visit the studio",
+        "studio.copy": "For people who want to start, return to training or take their performance to the next level.",
+
+        "stats.bjj": "Brazilian Jiu Jitsu",
+        "stats.mma": "Integrated training",
+        "stats.kids": "Kids and teens",
+
+        "programs.eyebrow": "Programs",
+        "programs.title": "Choose how you train.",
+        "programs.copy": "Train according to your stage: fundamentals, striking, MMA or kids and teens development, always with technical guidance.",
+        "programs.bjj": "Technical training to develop control, defense, mobility and confidence on the mats.",
+        "programs.striking": "Striking, defense, conditioning and precision classes for all levels.",
+        "programs.mma": "A complete experience that combines combat skills, physical preparation and a competitive mindset.",
+        "programs.kidsEyebrow": "Discipline · Safety · Progress",
+        "programs.kidsTitle": "KIDS AND TEENS",
+        "programs.kids": "Classes for kids from age 3, focused on technique, respect, confidence and athletic habits.",
+
+        "method.eyebrow": "Onit Method",
+        "method.title": "Technique first. Intensity with control.",
+        "method.safeTitle": "Safe training",
+        "method.safeCopy": "Clear progressions, technical guidance and respect for each person’s level.",
+        "method.communityTitle": "Community",
+        "method.communityCopy": "A team environment to train hard, learn and build consistency.",
+        "method.consistencyTitle": "Consistency",
+        "method.consistencyCopy": "Schedules and programs designed to help you make progress week by week.",
+
+        "services.title": "Business systems for small companies.",
+        "services.copy": "Beyond the studio, ONIT GBS helps small businesses organize payments, sales, inventory, customers and reports using simple automated tools.",
+        "services.finEyebrow": "Financial control",
+        "services.finTitle": "Financial system",
+        "services.finCopy": "Dashboards to control income, expenses, pending payments, receivables, savings and monthly reports.",
+        "services.salesEyebrow": "Daily operation",
+        "services.salesTitle": "Inventory and sales",
+        "services.salesCopy": "Product, sales, customer, receipt and automatic email records for small businesses.",
+        "services.msgEyebrow": "Communication",
+        "services.msgTitle": "Automated messages",
+        "services.msgCopy": "Templates for confirmations, due dates, payments and follow-up by WhatsApp or email.",
+        "services.toolsEyebrow": "Google Workspace",
+        "services.toolsTitle": "Custom apps",
+        "services.toolsCopy": "Solutions with Google Sheets, Apps Script and lightweight websites to digitize processes.",
+        "services.ctaEyebrow": "For small businesses",
+        "services.ctaTitle": "Let’s turn your operation into a clear system.",
+
+        "start.eyebrow": "Start",
+        "start.title": "Your first class in 3 steps.",
+        "start.step1": "Message us on WhatsApp and book your trial class.",
+        "start.step2": "Arrive with comfortable clothes, hydration and a learning attitude.",
+        "start.step3": "Train with technical guidance from day one.",
+
+        "instagram.title": "Follow us on Instagram",
+        "instagram.copy": "See training sessions, events, seminars and moments from the ONIT community.",
+
+        "schedule.eyebrow": "Schedule",
+        "schedule.title": "2026 Schedule",
+        "schedule.time": "Time",
+        "schedule.fundamentals": "Fundamentals",
+        "schedule.kidsTitle": "Kids and teens",
+        "schedule.kidsSmall": "Kids Gi<br>3-8 years",
+        "schedule.kidsBig": "Kids Gi<br>+9 years",
+
+        "days.mon": "Monday",
+        "days.tue": "Tuesday",
+        "days.wed": "Wednesday",
+        "days.thu": "Thursday",
+        "days.fri": "Friday",
+        "days.sat": "Saturday",
+
+        "notes.gi": "<strong>GI/KIMONO:</strong> class with jiu jitsu uniform.",
+        "notes.nogi": "<strong>NO GI:</strong> class without kimono; shorts, t-shirt or rashguard are allowed.",
+        "notes.required": "<strong>REQUIRED:</strong> rashguard or t-shirt under the kimono.",
+        "notes.openmat": "<strong>OPEN MAT:</strong> check Instagram stories on Friday to confirm if it was scheduled.",
+
+        "pricing.eyebrow": "Pricing",
+        "pricing.title": "2026 Plans",
+        "pricing.copy": "Jiu Jitsu, MMA, Muay Thai and Kickboxing with monthly options and contract plans.",
+        "pricing.monthly": "Monthly",
+        "pricing.oneClass": "1 class",
+        "pricing.classes": "classes",
+        "pricing.new": "New",
+        "pricing.quarter": "Quarter",
+        "pricing.semester": "Semester",
+        "pricing.year": "Yearly",
+
+        "contact.info": "Information and reservations",
+        "contact.title": "Contact",
+        "contact.address": "Carrera 23 #75A - 55 · Milan neighborhood · Across from Santa Inés School.",
+
+        "gallery.eyebrow": "Gallery",
+        "gallery.title": "Life inside the studio.",
+        "gallery.techSmall": "Jiu Jitsu · Technique",
+        "gallery.tech": "Technique",
+        "gallery.sparringSmall": "Training · Control",
+        "gallery.sparring": "Controlled sparring",
+        "gallery.communitySmall": "Team · Community",
+        "gallery.community": "Community",
+
+        "location.eyebrow": "Location",
+        "location.title": "See you in Milan.",
+        "location.copy": "Carrera 23 #75A - 55, Milan neighborhood, across from Santa Inés School, Manizales.",
+
+        "footer.copy": "MMA · Jiu Jitsu · Muay Thai · Kickboxing · Automation · Manizales"
+      }
+    };
+
     function toggleMenu() {
-      document.getElementById('mobileNav').classList.toggle('open');
+      var nav = document.getElementById('mobileNav');
+      nav.classList.toggle('open');
     }
+
+    function updateThemeLogos(theme) {
+      var logos = document.querySelectorAll('.theme-logo');
+
+      logos.forEach(function(logo) {
+        var nextSrc = theme === 'light'
+          ? logo.getAttribute('data-light-src')
+          : logo.getAttribute('data-dark-src');
+
+        if (nextSrc && logo.getAttribute('src') !== nextSrc) {
+          logo.setAttribute('src', nextSrc);
+        }
+      });
+    }
+
     function setTheme(theme) {
       document.documentElement.setAttribute('data-theme', theme);
-      try { localStorage.setItem('onit-theme', theme); } catch (error) {}
+      updateThemeLogos(theme);
+
+      try {
+        localStorage.setItem('onit-theme', theme);
+      } catch (error) {}
+
       var toggleText = document.getElementById('themeToggleText');
-      if (toggleText) toggleText.textContent = theme === 'light' ? 'Modo oscuro' : 'Modo claro';
+
+      if (toggleText) {
+        var lang = document.documentElement.getAttribute('data-lang') || 'es';
+        toggleText.textContent = theme === 'light'
+          ? (lang === 'es' ? 'Modo oscuro' : 'Dark mode')
+          : (lang === 'es' ? 'Modo claro' : 'Light mode');
+      }
     }
+
     function toggleTheme() {
       var currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
-      setTheme(currentTheme === 'light' ? 'dark' : 'light');
+      var nextTheme = currentTheme === 'light' ? 'dark' : 'light';
+      setTheme(nextTheme);
     }
+
+    function setLanguage(lang) {
+      document.documentElement.setAttribute('data-lang', lang);
+      document.documentElement.setAttribute('lang', lang);
+
+      var dictionary = translations[lang] || translations.es;
+
+      document.querySelectorAll('[data-i18n]').forEach(function(element) {
+        var key = element.getAttribute('data-i18n');
+        var value = dictionary[key];
+
+        if (!value) return;
+
+        if (value.indexOf('<') !== -1) {
+          element.innerHTML = value;
+        } else {
+          element.textContent = value;
+        }
+      });
+
+      var languageText = document.getElementById('languageToggleText');
+      if (languageText) {
+        languageText.textContent = lang === 'es' ? 'English' : 'Español';
+      }
+
+      var currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+      var themeText = document.getElementById('themeToggleText');
+
+      if (themeText) {
+        themeText.textContent = currentTheme === 'light'
+          ? (lang === 'es' ? 'Modo oscuro' : 'Dark mode')
+          : (lang === 'es' ? 'Modo claro' : 'Light mode');
+      }
+
+      try {
+        localStorage.setItem('onit-lang', lang);
+      } catch (error) {}
+    }
+
+    function toggleLanguage() {
+      var currentLang = document.documentElement.getAttribute('data-lang') || 'es';
+      var nextLang = currentLang === 'es' ? 'en' : 'es';
+      setLanguage(nextLang);
+    }
+
     function scrollToSection(sectionId) {
       var element = document.getElementById(sectionId);
+
       if (!element) return;
+
       var headerOffset = 94;
-      var top = element.getBoundingClientRect().top + window.pageYOffset - headerOffset;
-      window.scrollTo({ top: top, behavior: 'smooth' });
+      var elementPosition = element.getBoundingClientRect().top;
+      var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+
       var nav = document.getElementById('mobileNav');
-      if (nav) nav.classList.remove('open');
-      if (history && history.replaceState) history.replaceState(null, '', window.location.pathname + window.location.search);
+
+      if (nav) {
+        nav.classList.remove('open');
+      }
+
+      if (history && history.replaceState) {
+        history.replaceState(null, '', window.location.pathname + window.location.search);
+      }
     }
+
     document.addEventListener('click', function(event) {
       var trigger = event.target.closest('[data-scroll]');
+
       if (!trigger) return;
+
       event.preventDefault();
-      scrollToSection(trigger.getAttribute('data-scroll'));
+
+      var sectionId = trigger.getAttribute('data-scroll');
+      scrollToSection(sectionId);
     });
+
     document.addEventListener('DOMContentLoaded', function() {
       var savedTheme = 'dark';
-      try { savedTheme = localStorage.getItem('onit-theme') || 'dark'; } catch (error) {}
+      var savedLang = 'es';
+
+      try {
+        savedTheme = localStorage.getItem('onit-theme') || 'dark';
+        savedLang = localStorage.getItem('onit-lang') || 'es';
+      } catch (error) {}
+
+      setLanguage(savedLang);
       setTheme(savedTheme);
     });
   </script>
