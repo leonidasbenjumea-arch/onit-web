@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Clase de cortesía | ONIT GBS</title>
+  <link rel="icon" href="assets/favicon.ico">
+  <link rel="stylesheet" href="assets/onit-platform.css">
+</head>
+<body>
+  <main class="public-wrap">
+    <section class="public-card">
+      <div class="lang"><button id="langEs">Español</button><button id="langEn">English</button></div>
+      <span class="pill">ONIT GBS Platform</span>
+      <h1 data-t="title" style="font-size:46px;line-height:.95;margin:18px 0 8px;letter-spacing:-.05em;">Clase de cortesía</h1>
+      <p data-t="sub" style="color:var(--muted);font-size:18px;">Completa tus datos y elige una clase disponible.</p>
+      <form id="courtesyForm" class="form-grid" style="margin-top:22px;">
+        <input id="language" name="language" type="hidden" value="es">
+        <label>Nombre completo <input name="name" required></label>
+        <label>Teléfono <input name="phone" inputmode="numeric" required></label>
+        <label>Correo <input name="email" type="email" required></label>
+        <label>EPS <input name="eps"></label>
+        <label>Contacto emergencia <input name="emergency_contact"></label>
+        <label>Teléfono emergencia <input name="emergency_phone" inputmode="numeric"></label>
+        <label>Peso kg <input name="weight_kg" inputmode="decimal"></label>
+        <label>Estatura cm <input name="height_cm" inputmode="decimal"></label>
+        <label style="grid-column:1/-1;">Lesiones o información relevante <textarea name="injuries"></textarea></label>
+        <label style="display:flex;align-items:center;gap:10px;"><input id="isMinor" type="checkbox" style="width:auto;"> Menor de edad</label>
+        <label>Responsable del menor <input name="guardian_name"></label>
+        <label>Teléfono responsable <input name="guardian_phone"></label>
+        <label style="display:flex;align-items:center;gap:10px;"><input id="hasExperience" type="checkbox" style="width:auto;"> Ha practicado artes marciales</label>
+        <label>Cuál disciplina <input name="martial_art"></label>
+        <label>Cinturón / nivel <input name="belt"></label>
+        <label style="grid-column:1/-1;">Clase disponible <select id="classOption" name="classOption" required></select></label>
+        <label style="grid-column:1/-1;display:flex;align-items:center;gap:10px;"><input id="dataProcessing" type="checkbox" style="width:auto;" required> <span data-t="privacy">Acepto el tratamiento de mis datos personales.</span></label>
+        <button class="btn primary" type="submit" data-t="submit">Solicitar clase</button>
+      </form>
+      <p style="margin-top:22px;"><a class="btn" href="software.html" data-t="back">Volver al inicio</a></p>
+    </section>
+  </main>
+  <div class="toast"></div>
+  <script type="module" src="assets/js/cortesia.js"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reserva de clases | ONIT GBS</title>
+  <link rel="icon" href="assets/favicon.ico">
+  <link rel="stylesheet" href="assets/onit-platform.css">
+</head>
+<body>
+  <main class="public-wrap">
+    <section class="public-card">
+      <div class="lang"><button id="langEs">Español</button><button id="langEn">English</button></div>
+      <span class="pill">ONIT GBS Platform</span>
+      <h1 data-t="title" style="font-size:46px;line-height:.95;margin:18px 0 8px;letter-spacing:-.05em;">Reserva de clases</h1>
+      <p data-t="sub" style="color:var(--muted);font-size:18px;">Ingresa tu teléfono para consultar clases disponibles según tu plan.</p>
+      <form id="phoneForm" class="form-grid" style="grid-template-columns:1fr auto;margin-top:22px;">
+        <label><span data-t="phone">Teléfono</span><input id="phone" inputmode="numeric" required></label>
+        <div style="align-self:end;"><button class="btn primary" data-t="enter" type="submit">Ingresar</button></div>
+      </form>
+      <div id="results" style="margin-top:22px;"></div>
+      <p style="margin-top:22px;"><a class="btn" href="software.html" data-t="back">Volver al inicio</a></p>
+    </section>
+  </main>
+  <div class="toast"></div>
+  <script type="module" src="assets/js/reservas.js"></script>
+</body>
+</html>

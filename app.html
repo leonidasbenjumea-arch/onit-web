@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ONIT Platform | Módulo financiero</title>
+  <link rel="icon" href="assets/favicon.ico">
+  <link rel="stylesheet" href="assets/onit-platform.css">
+</head>
+<body>
+  <div id="loginScreen" class="login-card">
+    <div class="login-inner">
+      <span class="pill">ONIT GBS Platform</span>
+      <h1 style="font-size:44px;line-height:.95;margin:18px 0 8px;letter-spacing:-.05em;">Módulo financiero</h1>
+      <p style="color:var(--muted);font-size:18px;">Ingresa la contraseña administrativa para continuar.</p>
+      <form id="loginForm" class="form-grid" style="margin-top:22px;grid-template-columns:1fr auto;">
+        <label>Contraseña
+          <input id="adminPassword" type="password" placeholder="Contraseña" required>
+        </label>
+        <div style="align-self:end;"><button class="btn primary" type="submit">Ingresar</button></div>
+      </form>
+      <p style="margin-top:20px;"><a class="btn" href="software.html">← Volver al inicio</a></p>
+    </div>
+  </div>
+
+  <div id="appShell" class="shell" style="display:none;">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo-box">CF</div>
+        <div>
+          <h1 id="academyName">Academia</h1>
+          <p id="academySub">ONIT Platform</p>
+          <span class="pill">Powered by ONIT GBS</span>
+        </div>
+      </div>
+      <nav class="nav">
+        <button class="active" data-section="dashboard">Dashboard</button>
+        <button data-section="payments">Ingresos</button>
+        <button data-section="expenses">Egresos</button>
+        <button data-section="students">Alumnos</button>
+        <button data-section="inventory">Inventario</button>
+        <button data-section="receivables">Cartera</button>
+        <button data-section="classes">Clases</button>
+        <button data-section="settings">Configuración</button>
+        <a href="software.html">← Volver al inicio</a>
+      </nav>
+      <div class="sidebar-footer">Sistema desarrollado y distribuido por <strong>ONIT GBS</strong>. Base inicial profesional con Vercel + Supabase.</div>
+    </aside>
+
+    <main class="main">
+      <div class="topbar">
+        <div class="title">
+          <h2>Dashboard financiero</h2>
+          <p>Control de ingresos, egresos, inventario, cartera y reservas.</p>
+        </div>
+        <div class="actions">
+          <input id="monthKey" type="month" style="width:220px;">
+          <button id="refreshBtn" class="btn">Actualizar</button>
+        </div>
+      </div>
+
+      <section id="dashboard" class="section active">
+        <div class="grid cards">
+          <div class="card"><h3>Ingresos del mes</h3><div id="mIngresos" class="metric">$0</div><p>Pagos efectivamente recibidos.</p></div>
+          <div class="card"><h3>Egresos del mes</h3><div id="mEgresos" class="metric">$0</div><p>Gastos registrados.</p></div>
+          <div class="card"><h3>Saldo operativo</h3><div id="mSaldo" class="metric">$0</div><p>Ingresos menos egresos.</p></div>
+          <div class="card"><h3>Cartera pendiente</h3><div id="mCartera" class="metric">$0</div><p>Productos o mensualidades no pagadas.</p></div>
+        </div>
+        <div class="grid cards" style="margin-top:22px;grid-template-columns:repeat(2,minmax(0,1fr));">
+          <div class="card"><h3>Costo represado en inventario</h3><div id="mInvCosto" class="metric">$0</div></div>
+          <div class="card"><h3>Valor venta inventario</h3><div id="mInvVenta" class="metric">$0</div></div>
+        </div>
+        <div class="grid two" style="margin-top:22px;">
+          <div class="card"><h2>Ingresos por rubro</h2><div class="table-wrap"><table><tbody id="incomeGroups"></tbody></table></div></div>
+          <div class="card"><h2>Egresos por rubro</h2><div class="table-wrap"><table><tbody id="expenseGroups"></tbody></table></div></div>
+        </div>
+        <div class="card" style="margin-top:22px;"><h2>Tipos de egreso</h2><div class="table-wrap"><table><tbody id="expenseTypeGroups"></tbody></table></div></div>
+      </section>
+
+      <section id="payments" class="section">
+        <div class="card">
+          <h2>Registrar ingreso</h2>
+          <form id="paymentForm" class="form-grid">
+            <label>Alumno <select name="student_id" data-student-select></select></label>
+            <label>Rubro <select name="rubric_id" data-rubric-select></select></label>
+            <label>Plan / producto <select name="item_id" data-item-select></select></label>
+            <label>Concepto <input name="concept" placeholder="Mensualidad, clase, producto..."></label>
+            <label>Valor <input name="amount" inputmode="numeric" required></label>
+            <label>Método de pago <input name="payment_method" placeholder="Cuenta bancaria, efectivo..."></label>
+            <label>Fecha de pago <input name="paid_at" type="date" required></label>
+            <label>Vencimiento <input name="due_at" type="date"></label>
+            <button class="btn primary" type="submit">Guardar ingreso</button>
+          </form>
+        </div>
+        <div class="card" style="margin-top:22px;"><h2>Ingresos del mes</h2><div class="table-wrap"><table><thead><tr><th>Fecha</th><th>Alumno</th><th>Rubro</th><th>Concepto</th><th>Valor</th><th>Vence</th></tr></thead><tbody id="paymentsRows"></tbody></table></div></div>
+      </section>
+
+      <section id="expenses" class="section">
+        <div class="card">
+          <h2>Registrar egreso</h2>
+          <form id="expenseForm" class="form-grid">
+            <label>Rubro de donde sale <select name="rubric_id" data-rubric-select></select></label>
+            <label>Tipo de egreso <input name="expense_type" placeholder="Arriendo, aseo, servicios..."></label>
+            <label>Descripción <input name="description" required></label>
+            <label>Valor <input name="amount" inputmode="numeric" required></label>
+            <label>Fecha <input name="expense_date" type="date" required></label>
+            <label>Fuente <input name="source" placeholder="Cuenta, efectivo..."></label>
+            <button class="btn primary" type="submit">Guardar egreso</button>
+          </form>
+        </div>
+        <div class="card" style="margin-top:22px;"><h2>Egresos del mes</h2><div class="table-wrap"><table><thead><tr><th>Fecha</th><th>Rubro</th><th>Tipo</th><th>Descripción</th><th>Valor</th></tr></thead><tbody id="expensesRows"></tbody></table></div></div>
+      </section>
+
+      <section id="students" class="section">
+        <div class="card">
+          <h2>Crear alumno</h2>
+          <form id="studentForm" class="form-grid">
+            <label>Nombre <input name="name" required></label>
+            <label>Teléfono <input name="phone"></label>
+            <label>Correo <input name="email" type="email"></label>
+            <label>EPS <input name="eps"></label>
+            <label>Contacto emergencia <input name="emergency_contact"></label>
+            <label>Teléfono emergencia <input name="emergency_phone"></label>
+            <label style="grid-column:1/-1;">Notas <textarea name="notes"></textarea></label>
+            <button class="btn primary" type="submit">Guardar alumno</button>
+          </form>
+        </div>
+        <div class="card" style="margin-top:22px;"><h2>Alumnos</h2><div class="table-wrap"><table><thead><tr><th>Nombre</th><th>Teléfono</th><th>Correo</th><th>EPS</th></tr></thead><tbody id="studentsRows"></tbody></table></div></div>
+      </section>
+
+      <section id="inventory" class="section">
+        <div class="grid two">
+          <div class="card">
+            <h2>Crear plan o producto</h2>
+            <form id="itemForm" class="form-grid">
+              <label>Nombre <input name="name" required></label>
+              <label>Rubro <select name="rubric_id" data-rubric-select></select></label>
+              <label>Tipo <select name="item_type"><option value="plan">Plan</option><option value="product">Producto</option><option value="service">Servicio</option></select></label>
+              <label>Precio <input name="price" inputmode="numeric"></label>
+              <label>Costo <input name="cost" inputmode="numeric"></label>
+              <label>Stock <input name="stock" inputmode="numeric"></label>
+              <label>Clases incluidas <input name="class_credits" inputmode="numeric"></label>
+              <label>Vigencia en días <input name="validity_days" inputmode="numeric"></label>
+              <button class="btn primary" type="submit">Guardar</button>
+            </form>
+          </div>
+          <div class="card">
+            <h2>Venta de producto</h2>
+            <form id="saleForm" class="form-grid">
+              <label>Alumno <select name="student_id" data-student-select></select></label>
+              <label>Producto <select name="item_id" data-product-select required></select></label>
+              <label>Cantidad <input name="quantity" value="1" inputmode="numeric" required></label>
+              <label>Fecha de entrega <input name="movement_date" type="date" required></label>
+              <label style="display:flex;align-items:center;gap:10px;"><input id="salePaid" type="checkbox" checked style="width:auto;"> Pagado al entregar</label>
+              <label>Método pago <input name="payment_method"></label>
+              <button class="btn primary" type="submit">Registrar venta</button>
+            </form>
+          </div>
+        </div>
+        <div class="card" style="margin-top:22px;"><h2>Productos, planes y servicios</h2><div class="table-wrap"><table><thead><tr><th>Nombre</th><th>Rubro</th><th>Tipo</th><th>Precio</th><th>Costo</th><th>Stock</th></tr></thead><tbody id="itemsRows"></tbody></table></div></div>
+        <div class="card" style="margin-top:22px;"><h2>Ventas y movimientos</h2><div class="table-wrap"><table><thead><tr><th>Fecha</th><th>Producto</th><th>Cantidad</th><th>Total</th><th>Pago</th><th>Alumno</th></tr></thead><tbody id="movementsRows"></tbody></table></div></div>
+      </section>
+
+      <section id="receivables" class="section">
+        <div class="card"><h2>Cartera pendiente</h2><div class="table-wrap"><table><thead><tr><th>Fecha</th><th>Alumno</th><th>Concepto</th><th>Valor</th><th>Acción</th></tr></thead><tbody id="receivablesRows"></tbody></table></div></div>
+      </section>
+
+      <section id="classes" class="section">
+        <div class="card">
+          <h2>Configurar clase</h2>
+          <form id="scheduleForm" class="form-grid">
+            <label>Nombre de clase <input name="class_name" required></label>
+            <label>Rubro <select name="rubric_id" data-rubric-select></select></label>
+            <label>Día <select name="day_of_week"><option value="1">Lunes</option><option value="2">Martes</option><option value="3">Miércoles</option><option value="4">Jueves</option><option value="5">Viernes</option><option value="6">Sábado</option><option value="0">Domingo</option></select></label>
+            <label>Hora <input name="start_time" type="time" required></label>
+            <label>Duración minutos <input name="duration_minutes" value="60" inputmode="numeric"></label>
+            <label>Cupo <input name="capacity" value="20" inputmode="numeric"></label>
+            <label style="display:flex;align-items:center;gap:10px;"><input id="allowCourtesy" type="checkbox" checked style="width:auto;"> Permite cortesía</label>
+            <button class="btn primary" type="submit">Guardar clase</button>
+          </form>
+        </div>
+        <div class="card" style="margin-top:22px;"><h2>Horarios configurados</h2><div class="table-wrap"><table><thead><tr><th>Día</th><th>Hora</th><th>Clase</th><th>Rubro</th><th>Cupo</th><th>Cortesía</th></tr></thead><tbody id="schedulesRows"></tbody></table></div></div>
+      </section>
+
+      <section id="settings" class="section">
+        <div class="card">
+          <h2>Rubros</h2>
+          <form id="rubricForm" class="form-grid">
+            <label>Nombre del rubro <input name="name" placeholder="Onit, Ketlab, Cafeteria..." required></label>
+            <label>Descripción <input name="description"></label>
+            <button class="btn primary" type="submit">Crear rubro</button>
+          </form>
+        </div>
+      </section>
+    </main>
+  </div>
+  <div class="toast"></div>
+  <script type="module" src="assets/js/admin-app.js"></script>
+</body>
+</html>
